@@ -95,13 +95,20 @@ const SafcoHeader = ({ newCustomer = false }: { newCustomer?: boolean }) => {
           {/* User & Cart */}
           <div className="flex items-center gap-4 shrink-0 w-44 justify-end">
             {/* User Account */}
-            <button className="hidden sm:flex items-center gap-1.5 text-sm text-foreground hover:text-primary transition-colors">
-              <span className="w-7 h-7 rounded-full bg-primary text-primary-foreground text-[11px] font-bold flex items-center justify-center">
-                BP
-              </span>
-              <span className="font-medium">Ben Park</span>
-              <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
-            </button>
+            {newCustomer ? (
+              <button className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/40 rounded-full px-3 py-1.5 hover:bg-primary/5 transition-colors">
+                <LogIn className="h-3.5 w-3.5" />
+                Sign In
+              </button>
+            ) : (
+              <button className="hidden sm:flex items-center gap-1.5 text-sm text-foreground hover:text-primary transition-colors">
+                <span className="w-7 h-7 rounded-full bg-primary text-primary-foreground text-[11px] font-bold flex items-center justify-center">
+                  BP
+                </span>
+                <span className="font-medium">Ben Park</span>
+                <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
+              </button>
+            )}
 
             {/* Cart */}
             <button className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors">
