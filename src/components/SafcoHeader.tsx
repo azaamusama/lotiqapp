@@ -46,12 +46,13 @@ const SafcoHeader = () => {
           </button>
 
           {/* Logo */}
-          <Link to="/" className="shrink-0">
+          <Link to="/" className="shrink-0 w-40">
             <img src={safcoLogo} alt="Safco Dental Supply" className="h-12 w-auto" />
           </Link>
 
-          {/* Search Bar + Recent */}
-          <div className="flex-1 max-w-2xl">
+          {/* Search Bar + Recent — centered */}
+          <div className="flex-1 flex flex-col items-center">
+          <div className="w-full max-w-2xl">
             <div className="flex w-full rounded-lg border border-input overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:border-primary">
               <input
                 type="text"
