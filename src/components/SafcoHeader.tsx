@@ -59,7 +59,7 @@ const SafcoHeader = () => {
           {/* Logo */}
           <Link to="/" className="shrink-0">
             <img src={safcoLogo} alt="Safco Dental Supply" className="h-10 w-auto" />
-          </a>
+          </Link>
 
           {/* Search Bar */}
           <div className="hidden sm:flex flex-1 max-w-2xl mx-auto">
