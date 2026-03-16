@@ -1,17 +1,18 @@
 import { Search, Phone, Truck, ShoppingCart, User, Menu, X, Heart, MapPin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import safcoLogo from "@/assets/safco-logo.png";
 
 const NAV_ITEMS = [
-  { label: "Shop", highlight: true },
-  { label: "Supplies" },
-  { label: "Restorative" },
-  { label: "Equipment" },
-  { label: "Infection Control" },
-  { label: "Laboratory" },
-  { label: "Endodontics" },
-  { label: "Deals", highlight: true },
+  { label: "Shop", highlight: true, slug: "all-products" },
+  { label: "Supplies", slug: "supplies" },
+  { label: "Restorative", slug: "restorative" },
+  { label: "Equipment", slug: "equipment" },
+  { label: "Infection Control", slug: "infection-control" },
+  { label: "Laboratory", slug: "laboratory" },
+  { label: "Endodontics", slug: "endodontics" },
+  { label: "Deals", highlight: true, slug: "deals" },
 ];
 
 const SafcoHeader = () => {
