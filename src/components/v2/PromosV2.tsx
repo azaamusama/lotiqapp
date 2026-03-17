@@ -1,4 +1,4 @@
-import { ArrowRight, Tag, Percent, Gift } from "lucide-react";
+import { ArrowRight, Tag, Percent, Gift, Shield } from "lucide-react";
 import productComposite from "@/assets/product-composite.jpg";
 import productAnesthetic from "@/assets/product-anesthetic.jpg";
 
@@ -12,9 +12,8 @@ const PromosV2 = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Hero Promo - spans 2 rows */}
-          <div className="md:col-span-1 md:row-span-2 relative overflow-hidden rounded-3xl bg-v2-promo-hero-bg flex flex-col justify-between p-8 min-h-[280px] md:min-h-auto">
-            {/* Subtle radial glow */}
+          {/* Hero Promo */}
+          <div className="md:col-span-1 relative overflow-hidden rounded-3xl bg-v2-promo-hero-bg flex flex-col justify-between p-8 min-h-[280px]">
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/20 blur-3xl" />
             </div>
@@ -34,47 +33,50 @@ const PromosV2 = () => {
             </a>
           </div>
 
-          {/* Promo Card 2 */}
-          <div className="relative overflow-hidden rounded-3xl bg-v2-card border border-v2-card-border p-6 flex items-center gap-5 hover:shadow-v2-card-hover hover:border-v2-card-hover-border transition-all duration-200">
-            <img src={productComposite} alt="Composite" className="w-20 h-20 object-contain rounded-xl bg-v2-img-bg p-2 shrink-0" />
-            <div>
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-alert uppercase tracking-wide mb-1">
-                <Percent className="h-3 w-3" /> Hot Deal
-              </span>
-              <p className="text-lg font-bold text-v2-section-title leading-tight">$10 off<br />orders $75+</p>
-              <p className="text-xs text-v2-section-sub mt-1">Use code <span className="font-mono font-bold text-primary">DENTAL10</span></p>
-              <a href="#" className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-2 hover:gap-2 transition-all">
-                Shop now <ArrowRight className="h-3 w-3" />
-              </a>
+          {/* Right 2 stacked */}
+          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Promo Card 2 */}
+            <div className="relative overflow-hidden rounded-3xl bg-v2-card border border-v2-card-border p-6 flex items-center gap-5 hover:shadow-v2-card-hover hover:border-v2-card-hover-border transition-all duration-200">
+              <img src={productComposite} alt="Composite" className="w-20 h-20 object-contain rounded-xl bg-v2-img-bg p-2 shrink-0" />
+              <div>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-alert uppercase tracking-wide mb-1">
+                  <Percent className="h-3 w-3" /> Hot Deal
+                </span>
+                <p className="text-lg font-bold text-v2-section-title leading-tight">$10 off<br />orders $75+</p>
+                <p className="text-xs text-v2-section-sub mt-1">Use code <span className="font-mono font-bold text-primary">DENTAL10</span></p>
+                <a href="#" className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-2 hover:gap-2 transition-all">
+                  Shop now <ArrowRight className="h-3 w-3" />
+                </a>
+              </div>
             </div>
-          </div>
 
-          {/* Promo Card 3 */}
-          <div className="relative overflow-hidden rounded-3xl bg-v2-promo-teal-bg border border-v2-promo-teal-border p-6 flex items-center justify-between hover:shadow-v2-card-hover transition-all duration-200">
-            <div>
-              <p className="text-3xl font-black text-v2-promo-teal-title">30%</p>
-              <p className="text-base font-bold text-v2-promo-teal-title leading-tight">Off Infection<br />Control</p>
-              <a href="#" className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-3 hover:gap-2 transition-all">
-                Shop Deals <ArrowRight className="h-3 w-3" />
-              </a>
+            {/* Promo Card 3 */}
+            <div className="relative overflow-hidden rounded-3xl bg-v2-promo-teal-bg border border-v2-promo-teal-border p-6 flex items-center justify-between hover:shadow-v2-card-hover transition-all duration-200">
+              <div>
+                <p className="text-3xl font-black text-v2-promo-teal-title">30%</p>
+                <p className="text-base font-bold text-v2-promo-teal-title leading-tight">Off Infection<br />Control</p>
+                <a href="#" className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-3 hover:gap-2 transition-all">
+                  Shop Deals <ArrowRight className="h-3 w-3" />
+                </a>
+              </div>
+              <div className="w-16 h-16 rounded-2xl bg-white/50 flex items-center justify-center">
+                <Shield className="h-8 w-8 text-primary" />
+              </div>
             </div>
-            <div className="w-16 h-16 rounded-2xl bg-white/50 flex items-center justify-center">
-              <Shield className="h-8 w-8 text-primary" />
-            </div>
-          </div>
 
-          {/* Promo Card 4 */}
-          <div className="relative overflow-hidden rounded-3xl bg-v2-card border border-v2-card-border p-6 flex items-center gap-5 hover:shadow-v2-card-hover hover:border-v2-card-hover-border transition-all duration-200">
-            <img src={productAnesthetic} alt="Anesthetic" className="w-20 h-20 object-contain rounded-xl bg-v2-img-bg p-2 shrink-0" />
-            <div>
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-success uppercase tracking-wide mb-1">
-                <Gift className="h-3 w-3" /> This Week
-              </span>
-              <p className="text-lg font-bold text-v2-section-title leading-tight">Save Up to<br />30% on Essentials</p>
-              <p className="text-xs text-v2-section-sub mt-1">Top anesthetics & consumables</p>
-              <a href="#" className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-2 hover:gap-2 transition-all">
-                View All <ArrowRight className="h-3 w-3" />
-              </a>
+            {/* Promo Card 4 */}
+            <div className="sm:col-span-2 relative overflow-hidden rounded-3xl bg-v2-card border border-v2-card-border p-6 flex items-center gap-5 hover:shadow-v2-card-hover hover:border-v2-card-hover-border transition-all duration-200">
+              <img src={productAnesthetic} alt="Anesthetic" className="w-20 h-20 object-contain rounded-xl bg-v2-img-bg p-2 shrink-0" />
+              <div>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-success uppercase tracking-wide mb-1">
+                  <Gift className="h-3 w-3" /> This Week
+                </span>
+                <p className="text-lg font-bold text-v2-section-title leading-tight">Save Up to 30% on Essentials</p>
+                <p className="text-xs text-v2-section-sub mt-1">Top anesthetics & consumables on sale now</p>
+                <a href="#" className="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-2 hover:gap-2 transition-all">
+                  View All <ArrowRight className="h-3 w-3" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -83,6 +85,4 @@ const PromosV2 = () => {
   );
 };
 
-// Import Shield for the inline use
-import { Shield } from "lucide-react";
 export default PromosV2;
