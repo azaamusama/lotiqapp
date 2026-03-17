@@ -31,7 +31,7 @@ const SafcoHeaderV3 = () => {
     <header className="sticky top-0 z-50 shadow-lg">
 
       {/* ── Utility Bar ── */}
-      <div className="bg-[hsl(219_59%_28%)]">
+      <div className="bg-[#5E8AD2]">
         <div className="container flex items-center justify-center gap-10 py-1.5 text-[12px] text-primary-foreground/80">
           <a href="tel:8006212178" className="flex items-center gap-1.5 hover:text-primary-foreground transition-colors">
             <Phone className="h-3 w-3" />
