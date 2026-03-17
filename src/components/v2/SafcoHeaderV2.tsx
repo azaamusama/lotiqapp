@@ -426,6 +426,14 @@ const SafcoHeaderV2 = () => {
                       Homepage V3
                       <span className="text-[9px] font-bold bg-success/20 text-success rounded px-1.5 py-0.5">V3</span>
                     </Link>
+                    <Link
+                      to="/v4"
+                      onClick={() => setVersionDropdownOpen(false)}
+                      className="flex items-center justify-between px-4 py-2.5 text-xs text-v2-dropdown-item hover:bg-v2-dropdown-item-hover transition-colors"
+                    >
+                      Homepage V4
+                      <span className="text-[9px] font-bold bg-orange-100 text-orange-600 rounded px-1.5 py-0.5">V4</span>
+                    </Link>
                   </div>
                 )}
               </div>

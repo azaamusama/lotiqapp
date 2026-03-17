@@ -163,6 +163,14 @@ const SafcoHeader = ({ newCustomer = false }: { newCustomer?: boolean }) => {
                       <span>Homepage V3</span>
                       <span className="text-[10px] font-semibold bg-success/20 text-success rounded px-1.5 py-0.5">V3</span>
                     </Link>
+                    <Link
+                      to="/v4"
+                      onClick={() => setVersionDropdownOpen(false)}
+                      className="flex items-center justify-between px-4 py-2.5 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors"
+                    >
+                      <span>Homepage V4</span>
+                      <span className="text-[10px] font-semibold bg-orange-100 text-orange-600 rounded px-1.5 py-0.5">V4</span>
+                    </Link>
                   </div>
                 )}
               </div>
