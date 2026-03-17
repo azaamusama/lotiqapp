@@ -1,7 +1,7 @@
 import { Search, Phone, Truck, ShoppingCart, ChevronDown, Pencil, Menu, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import safcoLogo from "@/assets/safco-logo.png";
+import safcoLogo from "@/assets/safco-logo-v3.png";
 
 const NAV_ITEMS = [
   { label: "All Products", slug: "all-products", hasDropdown: true, isVersionPicker: true },
@@ -65,7 +65,7 @@ const SafcoHeaderV3 = () => {
 
           {/* Logo */}
           <Link to="/v3" className="shrink-0">
-            <img src={safcoLogo} alt="Safco Dental Supply" className="h-[52px] w-auto brightness-0 invert" />
+            <img src={safcoLogo} alt="Safco Dental Supply" className="h-[52px] w-auto" />
           </Link>
 
           {/* ── Search bar (icon inside, right side) ── */}
