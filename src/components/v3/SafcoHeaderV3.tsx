@@ -1,7 +1,7 @@
 import { Search, Phone, Truck, ShoppingCart, ChevronDown, Pencil, Menu, X, User } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import safcoLogo from "@/assets/safco-logo-v3.png";
+import safcoLogo from "@/assets/safco-logo-white.png";
 
 const NAV_ITEMS = [
   { label: "All Products", slug: "all-products", hasDropdown: true, isVersionPicker: true },
@@ -64,7 +64,6 @@ const SafcoHeaderV3 = () => {
               src={safcoLogo}
               alt="Safco Dental Supply"
               className="h-[48px] w-auto"
-              style={{ mixBlendMode: "screen" }}
             />
           </Link>
 
