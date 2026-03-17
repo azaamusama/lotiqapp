@@ -202,6 +202,9 @@ const SafcoHeaderV3 = () => {
             <Link to="/v2" onClick={() => setMobileMenuOpen(false)} className="px-5 py-3.5 text-sm font-medium border-b border-primary-foreground/10 hover:bg-primary-foreground/10 text-primary-foreground flex items-center justify-between">
               Homepage V2 <span className="text-[10px] font-bold bg-primary-foreground/20 text-primary-foreground rounded px-1.5 py-0.5">V2</span>
             </Link>
+            <Link to="/v4" onClick={() => setMobileMenuOpen(false)} className="px-5 py-3.5 text-sm font-medium border-b border-primary-foreground/10 hover:bg-primary-foreground/10 text-primary-foreground flex items-center justify-between">
+              Homepage V4 <span className="text-[10px] font-bold bg-primary-foreground/20 text-primary-foreground rounded px-1.5 py-0.5">V4</span>
+            </Link>
             <Link to="/category/personalized" onClick={() => setMobileMenuOpen(false)} className="px-5 py-3.5 text-sm font-medium border-b border-primary-foreground/10 hover:bg-primary-foreground/10 text-primary-foreground flex items-center gap-2">
               <Pencil className="h-4 w-4" /> Personalized
             </Link>
