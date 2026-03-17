@@ -117,7 +117,7 @@ const SafcoHeaderV3 = () => {
                 {/* "All Products" styled as outlined rounded-rect button */}
                 <button
                   onClick={() => setVersionDropdownOpen((v) => !v)}
-                  className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold text-foreground border border-foreground/30 rounded-md hover:border-primary hover:text-primary transition-colors whitespace-nowrap"
+                  className="flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold text-primary-foreground border border-primary-foreground/40 rounded-md hover:border-primary-foreground hover:bg-primary-foreground/10 transition-colors whitespace-nowrap"
                 >
                   {item.label}
                   <ChevronDown
@@ -152,37 +152,6 @@ const SafcoHeaderV3 = () => {
                     </Link>
                   </div>
                 )}
-              </div>
-            ) : (
-              <Link
-                key={item.label}
-                to={`/category/${item.slug}`}
-                className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap"
-              >
-                {item.label}
-                {item.hasDropdown && (
-                  <ChevronDown className="h-3.5 w-3.5 text-foreground/60" />
-                )}
-              </Link>
-            )
-          )}
-
-          {/* Quick Order — plain link, no hover bg */}
-          <Link
-            to="/category/all-products"
-            className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap ml-1"
-          >
-            Quick Order
-          </Link>
-
-          {/* Personalized — outlined pill */}
-          <Link
-            to="/category/personalized"
-            className="flex items-center gap-1.5 ml-2 px-3 py-1.5 text-sm font-medium text-foreground border border-foreground/30 rounded-full hover:border-primary hover:text-primary transition-colors whitespace-nowrap"
-          >
-            <Pencil className="h-3.5 w-3.5" />
-            Personalized
-          </Link>
         </div>
       </nav>
 
