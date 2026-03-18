@@ -183,7 +183,7 @@ const SafcoHeaderV3 = () => {
 
       {/* ── Mobile Menu ── */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-primary-foreground/10 bg-[hsl(219_59%_34%)]">
+        <div className="lg:hidden border-t border-primary-foreground/10 bg-[#20396C]">
           <div className="flex flex-col">
             {NAV_ITEMS.map((item) => (
               <Link
