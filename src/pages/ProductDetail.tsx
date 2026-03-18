@@ -46,11 +46,11 @@ const PRODUCT = {
 };
 
 const TRUST_ITEMS = [
-  { icon: "💲", label: "Low Prices" },
-  { icon: "🚚", label: "Free shipping" },
-  { icon: "↩️", label: "Risk-free return policy" },
-  { icon: "✓", label: "Accuracy and reliability" },
-  { icon: "🏥", label: "Fully authorized and licensed" },
+  { icon: DollarSign, label: "Low Prices" },
+  { icon: Truck, label: "Free shipping" },
+  { icon: RotateCcw, label: "Risk-free return policy" },
+  { icon: Sparkles, label: "Accuracy and reliability" },
+  { icon: ShieldCheck, label: "Fully authorized and licensed" },
 ];
 
 const REVIEWS = [
