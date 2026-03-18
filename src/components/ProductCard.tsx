@@ -17,9 +17,9 @@ const ProductCard = ({ image, name, price, originalPrice }: ProductCardProps) =>
   return (
     <div className="bg-card border border-border rounded-lg p-4 flex flex-col h-full group hover:shadow-md transition-shadow">
       {/* Image */}
-      <div className="relative aspect-square mb-4 overflow-hidden rounded-lg border border-border/50 bg-white flex items-center justify-center">
-        <img src={image} alt={name} className="w-4/5 h-4/5 object-contain" loading="lazy" />
-      </div>
+        <div className="relative aspect-square mb-4 overflow-hidden rounded-lg border border-border/50 bg-white flex items-center justify-center">
+          <img src={image} alt={name} className="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </div>
 
       {/* Details */}
       <div className="flex-1 flex flex-col">
