@@ -140,14 +140,32 @@ const HeroPromoGrid = () => {
 
         {/* Second Promo Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          {/* Deal highlight */}
-          <div className="bg-card rounded-lg p-4 border border-border flex items-center gap-4">
-            <img src={productComposite} alt="Composite" className="w-20 h-20 object-contain" />
-            <div>
-              <p className="text-[10px] text-muted-foreground uppercase">Hot Deal</p>
-              <p className="text-sm font-bold text-foreground">$10 off orders $75+</p>
-              <p className="text-xs text-muted-foreground mt-1">Use code DENTAL10</p>
-              <a href="#" className="text-xs text-primary font-medium hover:underline mt-1 inline-block">Shop now →</a>
+          {/* Labubu Holiday Promo Card */}
+          <div className="relative rounded-lg overflow-hidden flex items-stretch min-h-[120px] bg-gradient-to-br from-[hsl(45_90%_60%)] via-[hsl(40_85%_65%)] to-[hsl(35_80%_55%)]">
+            {/* Sparkle overlay */}
+            <div className="absolute inset-0 opacity-30" style={{backgroundImage: 'radial-gradient(circle at 20% 30%, white 1px, transparent 1px), radial-gradient(circle at 70% 60%, white 1px, transparent 1px), radial-gradient(circle at 50% 20%, white 1px, transparent 1px)', backgroundSize: '60px 60px, 80px 80px, 40px 40px'}} />
+
+            {/* Left: copy */}
+            <div className="flex-1 flex flex-col justify-center px-4 py-3 z-10 relative">
+              <h3 className="text-lg font-black text-white leading-tight drop-shadow-sm">
+                Merry &amp;<br />Mischievous
+              </h3>
+              <p className="text-xs font-semibold text-white/90 mt-2 leading-snug">
+                Free Labubu with<br />orders over <span className="font-black">$2000</span>
+              </p>
+              <p className="text-[10px] text-white/80 mt-1">Limited Supply.</p>
+              <p className="text-[10px] text-white/80 mt-1">
+                Promo Code: <span className="font-black text-white tracking-wider">HOLIDAY</span>
+              </p>
+            </div>
+
+            {/* Right: Labubu image */}
+            <div className="w-24 relative shrink-0">
+              <img
+                src={promoLabubu}
+                alt="Free Labubu gift"
+                className="absolute bottom-0 right-0 h-full w-full object-cover object-left"
+              />
             </div>
           </div>
 
