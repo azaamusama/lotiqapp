@@ -144,6 +144,10 @@ const SafcoHeaderV3 = () => {
                       Homepage V4
                       <span className="text-[10px] font-bold bg-orange-100 text-orange-600 rounded px-1.5 py-0.5">V4</span>
                     </Link>
+                    <Link to="/v5" onClick={() => setVersionDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors">
+                      Homepage V5
+                      <span className="text-[10px] font-bold bg-purple-100 text-purple-600 rounded px-1.5 py-0.5">V5</span>
+                    </Link>
                   </div>
                 )}
               </div>
