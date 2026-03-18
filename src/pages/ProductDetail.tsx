@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Star, Heart, ChevronRight, Minus, Plus, Truck, RotateCcw, ShieldCheck, Award, Package, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Star, Heart, ChevronRight, Minus, Plus, Truck, RotateCcw, ShieldCheck, Award, Package, X, ChevronDown, ChevronUp, DollarSign, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SafcoHeader from "@/components/SafcoHeader";
 import SafcoFooter from "@/components/SafcoFooter";
@@ -46,11 +46,11 @@ const PRODUCT = {
 };
 
 const TRUST_ITEMS = [
-  { icon: "💲", label: "Low Prices" },
-  { icon: "🚚", label: "Free shipping" },
-  { icon: "↩️", label: "Risk-free return policy" },
-  { icon: "✓", label: "Accuracy and reliability" },
-  { icon: "🏥", label: "Fully authorized and licensed" },
+  { icon: DollarSign, label: "Low Prices" },
+  { icon: Truck, label: "Free shipping" },
+  { icon: RotateCcw, label: "Risk-free return policy" },
+  { icon: Sparkles, label: "Accuracy and reliability" },
+  { icon: ShieldCheck, label: "Fully authorized and licensed" },
 ];
 
 const REVIEWS = [
@@ -269,11 +269,15 @@ const ProductDetail = () => {
             </div>
 
             {/* Trust Strip */}
-            <div className="bg-primary rounded-lg px-4 py-3 flex items-center justify-around mb-5">
-              {TRUST_ITEMS.map((t) => (
-                <div key={t.label} className="flex flex-col items-center gap-1 text-center">
-                  <span className="text-xl">{t.icon}</span>
-                  <span className="text-[10px] text-primary-foreground leading-tight max-w-[60px]">{t.label}</span>
+            <div className="bg-card border border-border rounded-lg px-4 py-4 flex items-center justify-around mb-5">
+              {TRUST_ITEMS.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex flex-col items-center gap-2 text-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shadow-sm">
+                    <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon className="h-4 w-4 text-primary" />
+                    </div>
+                  </div>
+                  <span className="text-[10px] text-foreground font-medium leading-tight max-w-[60px]">{label}</span>
                 </div>
               ))}
             </div>
