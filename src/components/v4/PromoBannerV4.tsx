@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
 import bannerCeramir from "@/assets/banner-ceramir.png";
 
 const PromoBannerV4 = () => (
   <section className="w-full py-3">
     <div className="container">
-      <img
-        src={bannerCeramir}
-        alt="Ceramir Crown & Bridge – Buy 3 Get 1 Free"
-        className="w-full h-auto block rounded-xl"
-      />
+      <Link to="/category/ceramir" className="block">
+        <img
+          src={bannerCeramir}
+          alt="Ceramir Crown & Bridge – Buy 3 Get 1 Free"
+          className="w-full h-auto block rounded-xl transition-opacity hover:opacity-90"
+        />
+      </Link>
     </div>
   </section>
 );
