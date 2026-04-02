@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { AppLayout } from "@/components/lotiq/AppLayout";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Camera, Wifi, WifiOff, AlertTriangle, Truck, ChevronRight, Plus } from "lucide-react";
+import { Building2, Camera, Wifi, WifiOff, AlertTriangle, Truck, ChevronRight, Plus, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 interface PropertyItem {
   id: string;
@@ -52,6 +54,12 @@ const mockProperties: PropertyItem[] = [
 
 export default function Properties() {
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+
+  const filtered = mockProperties.filter(p =>
+    p.name.toLowerCase().includes(search.toLowerCase()) ||
+    p.address.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <AppLayout
@@ -62,8 +70,20 @@ export default function Properties() {
         </Button>
       }
     >
+      {/* Search */}
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Input
+          placeholder="Search properties..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="pl-9 h-10 rounded-xl"
+          maxLength={100}
+        />
+      </div>
+
       <div className="space-y-3">
-        {mockProperties.map((prop) => {
+        {filtered.map((prop) => {
           const allOnline = prop.camerasOnline === prop.cameras;
           const allOffline = prop.camerasOnline === 0;
 
@@ -136,6 +156,13 @@ export default function Properties() {
             </Card>
           );
         })}
+        {filtered.length === 0 && (
+          <Card>
+            <CardContent className="p-6 text-center text-sm text-muted-foreground">
+              No properties match "{search}"
+            </CardContent>
+          </Card>
+        )}
       </div>
     </AppLayout>
   );
