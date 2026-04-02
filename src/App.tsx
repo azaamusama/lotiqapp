@@ -15,6 +15,7 @@ import Vehicles from "@/pages/lotiq/Vehicles";
 import Cameras from "@/pages/lotiq/Cameras";
 import PropertySetup from "@/pages/lotiq/PropertySetup";
 import Properties from "@/pages/lotiq/Properties";
+import PropertyDetail from "@/pages/lotiq/PropertyDetail";
 import Pricing from "@/pages/lotiq/Pricing";
 import NotFound from "@/pages/NotFound";
 
@@ -39,7 +40,7 @@ const App = () => (
             <Route path="/cameras" element={<Cameras />} />
             <Route path="/property" element={<Properties />} />
             <Route path="/property/setup" element={<PropertySetup />} />
-            <Route path="/property/:id" element={<PropertySetup />} />
+            <Route path="/property/:id" element={<PropertyDetail />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
