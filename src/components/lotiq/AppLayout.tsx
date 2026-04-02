@@ -18,6 +18,7 @@ export function AppLayout({ children, title, subtitle, headerRight, headerLeft }
     <div className="min-h-screen flex flex-col w-full">
       <header className="h-12 md:h-14 flex items-center justify-between border-b bg-card px-3 md:px-6 shrink-0">
         <div className="flex items-center gap-2 md:gap-3 min-w-0">
+          {headerLeft}
           {title && (
             <div className="min-w-0">
               <h2 className="text-sm md:text-base font-semibold text-foreground truncate">{title}</h2>
