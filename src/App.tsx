@@ -47,6 +47,10 @@ const App = () => (
             <Route path="/property/setup" element={<PropertySetup />} />
             <Route path="/property/:id" element={<PropertyDetail />} />
             <Route path="/property/:id/monitoring" element={<MonitoringRules />} />
+            <Route path="/property/:id/billing" element={<Billing />} />
+            <Route path="/property/:id/billing/invoices" element={<Invoices />} />
+            <Route path="/property/:id/billing/invoices/:invoiceId" element={<InvoiceDetail />} />
+            <Route path="/property/:id/billing/payment" element={<PaymentMethod />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
