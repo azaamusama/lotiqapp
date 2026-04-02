@@ -37,7 +37,9 @@ const App = () => (
             <Route path="/people" element={<People />} />
             <Route path="/vehicles" element={<Vehicles />} />
             <Route path="/cameras" element={<Cameras />} />
-            <Route path="/property" element={<PropertySetup />} />
+            <Route path="/property" element={<Properties />} />
+            <Route path="/property/setup" element={<PropertySetup />} />
+            <Route path="/property/:id" element={<PropertySetup />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
