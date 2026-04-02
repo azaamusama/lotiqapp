@@ -54,6 +54,12 @@ const mockProperties: PropertyItem[] = [
 
 export default function Properties() {
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+
+  const filtered = mockProperties.filter(p =>
+    p.name.toLowerCase().includes(search.toLowerCase()) ||
+    p.address.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <AppLayout
@@ -64,8 +70,20 @@ export default function Properties() {
         </Button>
       }
     >
+      {/* Search */}
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Input
+          placeholder="Search properties..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="pl-9 h-10 rounded-xl"
+          maxLength={100}
+        />
+      </div>
+
       <div className="space-y-3">
-        {mockProperties.map((prop) => {
+        {filtered.map((prop) => {
           const allOnline = prop.camerasOnline === prop.cameras;
           const allOffline = prop.camerasOnline === 0;
 
