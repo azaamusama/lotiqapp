@@ -1,6 +1,7 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "./AppSidebar";
 import { MobileBottomNav } from "./MobileBottomNav";
+import { Bell } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useLotIQ } from "@/contexts/LotIQContext";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLotIQ } from "@/contexts/LotIQContext";
