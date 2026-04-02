@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { AppLayout } from "@/components/lotiq/AppLayout";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Camera, Wifi, WifiOff, AlertTriangle, Truck, ChevronRight, Plus } from "lucide-react";
+import { Building2, Camera, Wifi, WifiOff, AlertTriangle, Truck, ChevronRight, Plus, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 interface PropertyItem {
   id: string;
