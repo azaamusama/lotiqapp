@@ -10,7 +10,7 @@ export default function Splash() {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-[hsl(var(--lotiq-navy))] flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center">
       <div className="animate-pulse flex flex-col items-center gap-4">
         {/* Logo icon */}
         <div className="w-24 h-24 rounded-2xl bg-[hsl(var(--lotiq-emerald))]/10 flex items-center justify-center">

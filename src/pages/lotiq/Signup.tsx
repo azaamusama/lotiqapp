@@ -46,8 +46,8 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-[hsl(var(--lotiq-navy))] flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-card rounded-2xl shadow-2xl flex flex-col max-h-[90vh]">
+    <div className="min-h-screen bg-background flex flex-col max-w-lg mx-auto">
+      <div className="w-full flex flex-col flex-1">
         {/* Header */}
         <div className="p-4 pb-0 shrink-0">
           <div className="flex items-center justify-between mb-3">

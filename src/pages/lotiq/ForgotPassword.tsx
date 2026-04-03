@@ -15,8 +15,8 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen bg-[hsl(var(--lotiq-navy))] flex items-center justify-center p-4">
-      <div className="w-full max-w-sm bg-card rounded-2xl p-6 md:p-8 shadow-2xl flex flex-col min-h-[70vh]">
+    <div className="min-h-screen bg-background flex flex-col max-w-lg mx-auto">
+      <div className="w-full flex-1 p-6 md:p-8 flex flex-col">
         <h1 className="text-xl font-bold text-foreground text-center mb-6">Forgot Password</h1>
 
         {/* Icon */}
