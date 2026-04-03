@@ -27,7 +27,7 @@ interface Notification {
   iconBg: string;
   iconColor: string;
   unread: boolean;
-  group: "today" | "yesterday";
+  group: "today" | "yesterday" | "earlier";
 }
 
 const properties = ["All Properties", "Maple Heights Apts", "Mall of Downtown"];
