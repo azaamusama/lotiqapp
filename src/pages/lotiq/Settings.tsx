@@ -18,12 +18,6 @@ const sections = [
     ],
   },
   {
-    label: "ACCESS MANAGEMENT",
-    items: [
-      { icon: Shield, title: "Authorized Parker", subtitle: "Invite and manage who is allowed to park", path: "/authorized-parkers" },
-    ],
-  },
-  {
     label: "TERMS & POLICIES",
     items: [
       { icon: FileText, title: "Terms & Condition", path: "/settings/terms" },
