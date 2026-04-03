@@ -211,6 +211,18 @@ export default function Notifications() {
               </Card>
             </div>
           )}
+
+          {/* Earlier */}
+          {earlierItems.length > 0 && (
+            <div>
+              <p className="text-[11px] font-semibold text-muted-foreground tracking-wider mb-2 px-1">EARLIER</p>
+              <Card className="divide-y divide-border">
+                {earlierItems.map((n) => (
+                  <NotificationRow key={n.id} notification={n} />
+                ))}
+              </Card>
+            </div>
+          )}
         </div>
       )}
     </AppLayout>
