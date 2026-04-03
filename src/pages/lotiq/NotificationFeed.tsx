@@ -220,10 +220,10 @@ export default function NotificationFeed() {
             <div className="relative flex-1" ref={categoryRef}>
               <button
                 onClick={() => { setCategoryOpen(!categoryOpen); setPropertyOpen(false); }}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground font-medium w-full"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground font-medium w-full whitespace-nowrap overflow-hidden"
               >
-                {categories.find((c) => c.value === categoryFilter)?.label}
-                <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-auto" />
+                <span className="truncate">{categories.find((c) => c.value === categoryFilter)?.label}</span>
+                <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-auto shrink-0" />
               </button>
               {categoryOpen && (
                 <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-lg z-50 overflow-hidden">
