@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AppLayout } from "@/components/lotiq/AppLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft, CameraOff, Truck, CheckCircle2, XCircle,
-  AlertTriangle, SlidersHorizontal, Filter, ChevronDown, ClipboardList,
+  AlertTriangle, SlidersHorizontal, Filter, ChevronDown, ClipboardList, Check,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import emptyIllustration from "@/assets/empty-notifications.png";
