@@ -39,7 +39,7 @@ export default function Login() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="h-12 bg-muted/50 border-0 rounded-xl"
+            className="h-11 bg-background border-border"
           />
         </div>
 
