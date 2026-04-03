@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   ArrowLeft, ClipboardCheck, Camera, Truck, AlertTriangle,
-  CheckCircle2, XCircle, Settings2, ChevronDown
+  CheckCircle2, XCircle, Settings2, ChevronDown, Shield, Zap, UserPlus
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
