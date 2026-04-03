@@ -80,7 +80,7 @@ export default function Notifications() {
     <AppLayout
       title="Notifications"
       headerLeft={
-        <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center">
+        <button onClick={() => navigate(`/property/${id || "prop-1"}`)} className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center">
           <ArrowLeft className="h-4 w-4 text-foreground" />
         </button>
       }
