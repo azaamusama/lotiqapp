@@ -95,8 +95,8 @@ export default function Signup() {
           </div>
         </div>
 
-        {/* Content - scrollable */}
-        <div className="flex-1 overflow-y-auto px-6 pb-6">
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto">
           {step === 1 && (
             <div>
               <h2 className="text-lg font-bold text-foreground mb-1">Create your account</h2>
