@@ -23,6 +23,9 @@ import Invoices from "@/pages/lotiq/Invoices";
 import InvoiceDetail from "@/pages/lotiq/InvoiceDetail";
 import PaymentMethod from "@/pages/lotiq/PaymentMethod";
 import Settings from "@/pages/lotiq/Settings";
+import TermsConditions from "@/pages/lotiq/TermsConditions";
+import PrivacyPolicy from "@/pages/lotiq/PrivacyPolicy";
+import HelpSupport from "@/pages/lotiq/HelpSupport";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -53,6 +56,9 @@ const App = () => (
             <Route path="/property/:id/billing/invoices/:invoiceId" element={<InvoiceDetail />} />
             <Route path="/property/:id/billing/payment" element={<PaymentMethod />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/settings/terms" element={<TermsConditions />} />
+            <Route path="/settings/privacy" element={<PrivacyPolicy />} />
+            <Route path="/settings/help" element={<HelpSupport />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </LotIQProvider>

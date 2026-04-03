@@ -14,14 +14,14 @@ const sections = [
   {
     label: "SYSTEM & SUPPORT",
     items: [
-      { icon: HelpCircle, title: "Help & Support", subtitle: "Contact support and view documentation", path: "" },
+      { icon: HelpCircle, title: "Help & Support", subtitle: "Contact support and view documentation", path: "/settings/help" },
     ],
   },
   {
     label: "TERMS & POLICIES",
     items: [
-      { icon: FileText, title: "Terms & Condition", path: "" },
-      { icon: ShieldCheck, title: "Privacy Policy", path: "" },
+      { icon: FileText, title: "Terms & Condition", path: "/settings/terms" },
+      { icon: ShieldCheck, title: "Privacy Policy", path: "/settings/privacy" },
     ],
   },
   {
@@ -48,6 +48,7 @@ export default function Settings() {
                 <Card
                   key={item.title}
                   className="flex items-center gap-3 p-3.5 cursor-pointer hover:bg-muted/50 transition-colors"
+                  onClick={() => item.path && navigate(item.path)}
                 >
                   <div className="h-9 w-9 rounded-full bg-muted flex items-center justify-center shrink-0">
                     <item.icon className="h-4.5 w-4.5 text-muted-foreground" />
