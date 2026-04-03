@@ -45,7 +45,7 @@ export default function Login() {
 
         {/* Password */}
         <div className="space-y-1.5">
-          <Label className="text-xs font-medium text-muted-foreground">Password</Label>
+          <Label className="text-xs font-medium text-foreground">Password <span className="text-destructive">*</span></Label>
           <div className="relative">
             <Input
               type={showPassword ? "text" : "password"}
