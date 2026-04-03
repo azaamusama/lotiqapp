@@ -34,7 +34,8 @@ export default function Signup() {
   const [placeName, setPlaceName] = useState("");
   const [category, setCategory] = useState("");
   const [locatedWithin, setLocatedWithin] = useState("");
-  const [showAddPlace, setShowAddPlace] = useState(false);
+  // sub-steps within step 2: "details" | "map" | "addPlace"
+  const [subStep, setSubStep] = useState<"details" | "map" | "addPlace">("details");
 
   const progressWidth = step === 1 ? "33%" : step === 2 ? "66%" : "100%";
 
