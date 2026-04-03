@@ -22,6 +22,7 @@ import Billing from "@/pages/lotiq/Billing";
 import Invoices from "@/pages/lotiq/Invoices";
 import InvoiceDetail from "@/pages/lotiq/InvoiceDetail";
 import PaymentMethod from "@/pages/lotiq/PaymentMethod";
+import Settings from "@/pages/lotiq/Settings";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
