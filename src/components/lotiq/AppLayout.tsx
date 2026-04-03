@@ -2,6 +2,7 @@ import { MobileBottomNav } from "./MobileBottomNav";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLotIQ } from "@/contexts/LotIQContext";
+import { useNavigate } from "react-router-dom";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ interface AppLayoutProps {
 
 export function AppLayout({ children, title, subtitle, headerRight, headerLeft }: AppLayoutProps) {
   const { stats } = useLotIQ();
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex flex-col w-full">
@@ -29,7 +31,7 @@ export function AppLayout({ children, title, subtitle, headerRight, headerLeft }
         <div className="flex items-center gap-2">
           {headerRight || (
             <>
-              <Button variant="ghost" size="icon" className="text-muted-foreground relative h-8 w-8 md:h-9 md:w-9">
+              <Button variant="ghost" size="icon" className="text-muted-foreground relative h-8 w-8 md:h-9 md:w-9" onClick={() => navigate("/settings/notifications")}>
                 <Bell className="h-4 w-4" />
                 {stats.activeIncidents > 0 && (
                   <span className="absolute -top-0.5 -right-0.5 h-4 w-4 rounded-full bg-destructive text-destructive-foreground text-[10px] flex items-center justify-center font-medium">
