@@ -159,6 +159,24 @@ export default function PropertyDetail() {
           </CardContent>
         </Card>
       </section>
+
+      {/* NOTIFICATIONS */}
+      <section className="mb-6">
+        <h3 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mb-3">
+          Notifications
+        </h3>
+        <Card>
+          <CardContent className="p-0">
+            <DetailRow
+              icon={<Bell className="h-5 w-5 text-[hsl(var(--lotiq-blue))]" />}
+              iconBg="bg-[hsl(var(--lotiq-blue))]/10"
+              title="Notification Settings"
+              subtitle="Manage alerts, recipients, and preferences"
+              onClick={() => navigate("/settings/notifications")}
+            />
+          </CardContent>
+        </Card>
+      </section>
     </AppLayout>
   );
 }
