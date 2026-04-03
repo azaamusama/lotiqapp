@@ -2,6 +2,7 @@ import { MobileBottomNav } from "./MobileBottomNav";
 import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLotIQ } from "@/contexts/LotIQContext";
+import { useNavigate } from "react-router-dom";
 
 interface AppLayoutProps {
   children: React.ReactNode;
