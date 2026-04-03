@@ -45,9 +45,9 @@ const App = () => (
       <BrowserRouter>
         <LotIQProvider>
           <Routes>
-            <Route path="/splash" element={<Splash />} />
+            <Route path="/" element={<Splash />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/incidents" element={<Incidents />} />
             <Route path="/incidents/:id" element={<Incidents />} />
             <Route path="/towing" element={<TowManagement />} />
