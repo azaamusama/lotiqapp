@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LotIQProvider } from "@/contexts/LotIQContext";
 
+import Splash from "@/pages/lotiq/Splash";
 import Login from "@/pages/lotiq/Login";
 import Dashboard from "@/pages/lotiq/Dashboard";
 import Incidents from "@/pages/lotiq/Incidents";
@@ -44,8 +45,9 @@ const App = () => (
       <BrowserRouter>
         <LotIQProvider>
           <Routes>
+            <Route path="/" element={<Splash />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/incidents" element={<Incidents />} />
             <Route path="/incidents/:id" element={<Incidents />} />
             <Route path="/towing" element={<TowManagement />} />
