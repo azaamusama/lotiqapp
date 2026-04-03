@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeft, ChevronRight, ShieldCheck, Moon, Camera,
-  AlertTriangle, Truck, Play, Sparkles, CreditCard, Car,
+  AlertTriangle, Truck, Play, Sparkles, CreditCard, Car, Bell,
 } from "lucide-react";
 
 const propertiesData: Record<string, { name: string; address: string }> = {
@@ -155,6 +155,24 @@ export default function PropertyDetail() {
               title="Billing"
               subtitle="Manage subscription, invoices, and payment methods"
               onClick={() => navigate(`/property/${id || "prop-1"}/billing`)}
+            />
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* NOTIFICATIONS */}
+      <section className="mb-6">
+        <h3 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mb-3">
+          Notifications
+        </h3>
+        <Card>
+          <CardContent className="p-0">
+            <DetailRow
+              icon={<Bell className="h-5 w-5 text-[hsl(var(--lotiq-blue))]" />}
+              iconBg="bg-[hsl(var(--lotiq-blue))]/10"
+              title="Notification Settings"
+              subtitle="Manage alerts, recipients, and preferences"
+              onClick={() => navigate("/settings/notifications")}
             />
           </CardContent>
         </Card>
