@@ -33,7 +33,7 @@ export default function Login() {
       <form onSubmit={handleLogin} className="flex-1 px-6 space-y-5">
         {/* Email */}
         <div className="space-y-1.5">
-          <Label className="text-xs font-medium text-muted-foreground">Email</Label>
+          <Label className="text-xs font-medium text-foreground">Email <span className="text-destructive">*</span></Label>
           <Input
             type="email"
             placeholder="Enter your email"
