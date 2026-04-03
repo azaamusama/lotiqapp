@@ -39,6 +39,7 @@ import PrivacyPolicy from "@/pages/lotiq/PrivacyPolicy";
 import HelpSupport from "@/pages/lotiq/HelpSupport";
 import ChangePassword from "@/pages/lotiq/ChangePassword";
 import Notifications from "@/pages/lotiq/Notifications";
+import NotificationFeed from "@/pages/lotiq/NotificationFeed";
 import SlipFallAnalysis from "@/pages/lotiq/SlipFallAnalysis";
 import AddNotificationPerson from "@/pages/lotiq/AddNotificationPerson";
 import NotFound from "@/pages/NotFound";
@@ -87,6 +88,7 @@ const App = () => (
             <Route path="/settings/privacy" element={<PrivacyPolicy />} />
             <Route path="/settings/help" element={<HelpSupport />} />
             <Route path="/settings/password" element={<ChangePassword />} />
+            <Route path="/notifications" element={<NotificationFeed />} />
             <Route path="/property/:id/notifications" element={<Notifications />} />
             <Route path="/property/:id/notifications/add" element={<AddNotificationPerson />} />
             <Route path="*" element={<NotFound />} />
