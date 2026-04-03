@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { AppLayout } from "@/components/lotiq/AppLayout";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   ArrowLeft, CameraOff, Truck, CheckCircle2, XCircle,
   AlertTriangle, SlidersHorizontal, Filter, ChevronDown,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import emptyIllustration from "@/assets/empty-notifications.png";
 
 type NotifCategory = "camera" | "tow-requested" | "tow-dispatched" | "tow-completed" | "tow-cancelled" | "detection" | "rules";
 
