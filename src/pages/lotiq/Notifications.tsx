@@ -108,7 +108,7 @@ export default function Notifications() {
             </div>
           </CardContent>
         </Card>
-        <button className="flex items-center gap-1.5 mt-3 text-sm font-medium text-primary">
+        <button onClick={() => navigate("/settings/notifications/add")} className="flex items-center gap-1.5 mt-3 text-sm font-medium text-primary">
           <Plus className="h-4 w-4" /> Add another person
         </button>
       </section>
