@@ -51,6 +51,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Splash />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/forgot-password/verify" element={<VerificationLink />} />
+            <Route path="/forgot-password/set-password" element={<SetPassword />} />
+            <Route path="/forgot-password/success" element={<PasswordChanged />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/incidents" element={<Incidents />} />
             <Route path="/incidents/:id" element={<Incidents />} />
