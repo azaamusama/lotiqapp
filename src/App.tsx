@@ -29,6 +29,7 @@ import PrivacyPolicy from "@/pages/lotiq/PrivacyPolicy";
 import HelpSupport from "@/pages/lotiq/HelpSupport";
 import ChangePassword from "@/pages/lotiq/ChangePassword";
 import Notifications from "@/pages/lotiq/Notifications";
+import SlipFallAnalysis from "@/pages/lotiq/SlipFallAnalysis";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
