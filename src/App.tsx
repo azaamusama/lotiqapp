@@ -31,6 +31,7 @@ import HelpSupport from "@/pages/lotiq/HelpSupport";
 import ChangePassword from "@/pages/lotiq/ChangePassword";
 import Notifications from "@/pages/lotiq/Notifications";
 import SlipFallAnalysis from "@/pages/lotiq/SlipFallAnalysis";
+import AddNotificationPerson from "@/pages/lotiq/AddNotificationPerson";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/settings/help" element={<HelpSupport />} />
             <Route path="/settings/password" element={<ChangePassword />} />
             <Route path="/settings/notifications" element={<Notifications />} />
+            <Route path="/settings/notifications/add" element={<AddNotificationPerson />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </LotIQProvider>
