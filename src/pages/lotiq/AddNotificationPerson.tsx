@@ -15,6 +15,7 @@ import { toast } from "sonner";
 
 export default function AddNotificationPerson() {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [email, setEmail] = useState("");
   const [issue, setIssue] = useState("trash");
   const [config, setConfig] = useState({
