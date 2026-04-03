@@ -267,13 +267,14 @@ export default function PropertySetup() {
         {/* STEP 4: Tow Partner */}
         {step === 3 && (
           <div className="space-y-5">
-            <div className="flex items-center gap-2">
-              <h2 className="text-xl font-bold text-foreground">Tow Partner</h2>
-              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground">Optional</span>
-            </div>
-            <p className="text-sm text-muted-foreground mt-1">
-              Add a towing company which will be automatically contacted when the towing service is required.
-            </p>
+            <div>
+              <div className="flex items-center gap-2">
+                <h2 className="text-xl font-bold text-foreground">Tow Partner</h2>
+                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground">Optional</span>
+              </div>
+              <p className="text-sm text-muted-foreground mt-1">
+                Add a towing company which will be automatically contacted when the towing service is required.
+              </p>
             </div>
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-3 text-xs text-primary flex items-start gap-2">
