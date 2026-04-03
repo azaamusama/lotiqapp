@@ -132,10 +132,11 @@ export default function NotificationFeed() {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [propertyOpen, setPropertyOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
+  const [markedAllRead, setMarkedAllRead] = useState(false);
   const propertyRef = useRef<HTMLDivElement>(null);
   const categoryRef = useRef<HTMLDivElement>(null);
 
-  const hasNotifications = todayNotifs.length > 0 || yesterdayNotifs.length > 0;
+  const hasNotifications = !markedAllRead && (todayNotifs.length > 0 || yesterdayNotifs.length > 0);
 
   const properties = [
     { value: "all", label: "All Properties" },
@@ -169,7 +170,10 @@ export default function NotificationFeed() {
       }
       headerRight={
         hasNotifications ? (
-          <button className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center">
+          <button
+            onClick={() => setMarkedAllRead(true)}
+            className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center"
+          >
             <ClipboardList className="h-4 w-4 text-foreground" />
           </button>
         ) : undefined
