@@ -515,7 +515,7 @@ export default function PropertySetup() {
             Add Payment Information
           </Button>
         ) : step === 6 ? (
-          <Button className="w-full h-12 rounded-xl text-base font-semibold" onClick={next} disabled={!selectedDate}>
+          <Button className="w-full h-12 rounded-xl text-base font-semibold" onClick={next} disabled={!selectedDate || !selectedTimeSlot}>
             Schedule Now
           </Button>
         ) : step === 7 ? (
