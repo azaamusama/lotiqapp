@@ -7,6 +7,10 @@ import { LotIQProvider } from "@/contexts/LotIQContext";
 
 import Splash from "@/pages/lotiq/Splash";
 import Login from "@/pages/lotiq/Login";
+import ForgotPassword from "@/pages/lotiq/ForgotPassword";
+import VerificationLink from "@/pages/lotiq/VerificationLink";
+import SetPassword from "@/pages/lotiq/SetPassword";
+import PasswordChanged from "@/pages/lotiq/PasswordChanged";
 import Dashboard from "@/pages/lotiq/Dashboard";
 import Incidents from "@/pages/lotiq/Incidents";
 import TowManagement from "@/pages/lotiq/TowManagement";
@@ -47,6 +51,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Splash />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/forgot-password/verify" element={<VerificationLink />} />
+            <Route path="/forgot-password/set-password" element={<SetPassword />} />
+            <Route path="/forgot-password/success" element={<PasswordChanged />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/incidents" element={<Incidents />} />
             <Route path="/incidents/:id" element={<Incidents />} />
