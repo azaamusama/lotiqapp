@@ -37,6 +37,24 @@ const attentionIconMap: Record<string, { icon: React.ReactNode; bg: string; bord
 export default function Dashboard() {
   const { stats, incidents, towJobs } = useLotIQ();
   const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data } = await supabase
+          .from("profiles")
+          .select("first_name")
+          .eq("user_id", user.id)
+          .single();
+        if (data?.first_name) {
+          setFirstName(data.first_name);
+        }
+      }
+    };
+    fetchProfile();
+  }, []);
 
   // Build attention items from active/escalated incidents + active tows
   const activeIncidents = incidents.filter(i => i.status === "active" || i.status === "escalated").slice(0, 3);
