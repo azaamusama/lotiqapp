@@ -79,7 +79,7 @@ export default function Login() {
             type="button"
             className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
           >
-            <div className="w-12 h-12 rounded-xl bg-muted/50 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center">
               <ScanFace className="h-6 w-6" />
             </div>
             <span className="text-[10px] font-medium">FaceID Login</span>
