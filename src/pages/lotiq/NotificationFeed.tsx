@@ -200,12 +200,12 @@ export default function NotificationFeed() {
                 <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-auto shrink-0" />
               </button>
               {propertyOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-lg z-50 overflow-hidden">
+                <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-lg z-50 overflow-hidden min-w-max">
                   {properties.map((p) => (
                     <button
                       key={p.value}
                       onClick={() => { setPropertyFilter(p.value); setPropertyOpen(false); }}
-                      className={`flex items-center gap-2.5 w-full px-4 py-3 text-sm text-foreground hover:bg-muted/50 transition-colors ${propertyFilter === p.value ? "bg-muted" : ""}`}
+                      className={`flex items-center gap-2.5 w-full px-4 py-3 text-sm text-foreground hover:bg-muted/50 transition-colors whitespace-nowrap ${propertyFilter === p.value ? "bg-muted" : ""}`}
                     >
                       {propertyFilter === p.value && <Check className="h-4 w-4 text-foreground" />}
                       {propertyFilter !== p.value && <span className="w-4" />}
