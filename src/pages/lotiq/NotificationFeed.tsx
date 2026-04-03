@@ -170,7 +170,10 @@ export default function NotificationFeed() {
       }
       headerRight={
         hasNotifications ? (
-          <button className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center">
+          <button
+            onClick={() => setMarkedAllRead(true)}
+            className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center"
+          >
             <ClipboardList className="h-4 w-4 text-foreground" />
           </button>
         ) : undefined
