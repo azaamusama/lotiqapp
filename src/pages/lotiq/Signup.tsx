@@ -291,8 +291,10 @@ export default function Signup() {
 
               <Button
                 className="w-full h-12 rounded-xl bg-[hsl(var(--lotiq-blue))] hover:bg-[hsl(var(--lotiq-blue-light))] text-white font-semibold text-base mt-6"
-                onClick={() => { setShowAddPlace(false); setStep(3); }}
+                onClick={() => { setSubStep("details"); setStep(3); }}
               >
+                Save
+              </Button>
                 Save
               </Button>
             </div>
