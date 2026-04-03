@@ -39,6 +39,7 @@ import PrivacyPolicy from "@/pages/lotiq/PrivacyPolicy";
 import HelpSupport from "@/pages/lotiq/HelpSupport";
 import ChangePassword from "@/pages/lotiq/ChangePassword";
 import Notifications from "@/pages/lotiq/Notifications";
+import NotificationFeed from "@/pages/lotiq/NotificationFeed";
 import SlipFallAnalysis from "@/pages/lotiq/SlipFallAnalysis";
 import AddNotificationPerson from "@/pages/lotiq/AddNotificationPerson";
 import NotFound from "@/pages/NotFound";
