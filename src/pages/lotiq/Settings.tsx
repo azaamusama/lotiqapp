@@ -6,12 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 const sections = [
   {
-    label: "NOTIFICATIONS",
-    items: [
-      { icon: Bell, title: "Notifications", subtitle: "Choose how you receive system alerts", path: "/settings/notifications" },
-    ],
-  },
-  {
     label: "SYSTEM & SUPPORT",
     items: [
       { icon: HelpCircle, title: "Help & Support", subtitle: "Contact support and view documentation", path: "/settings/help" },
