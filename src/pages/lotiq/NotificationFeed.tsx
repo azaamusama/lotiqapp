@@ -200,7 +200,7 @@ export default function NotificationFeed() {
                 <ChevronDown className="h-3.5 w-3.5 text-muted-foreground ml-auto shrink-0" />
               </button>
               {propertyOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-lg z-50 overflow-hidden">
+                <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-xl shadow-lg z-50 overflow-hidden min-w-max">
                   {properties.map((p) => (
                     <button
                       key={p.value}
