@@ -75,6 +75,24 @@ const initialNotifications: Notification[] = [
     icon: Settings2, iconBg: "bg-muted", iconColor: "text-muted-foreground",
     unread: false, group: "yesterday",
   },
+  {
+    id: "8", title: "Enforcement Paused", description: "Enforcement paused for scheduled main...",
+    property: "Maple Heights Apts", time: "3 days ago", category: "operational",
+    icon: Shield, iconBg: "bg-muted", iconColor: "text-muted-foreground",
+    unread: false, group: "earlier",
+  },
+  {
+    id: "9", title: "System Outage Resolved", description: "All systems back to normal operation.",
+    property: "Mall of Downtown", time: "4 days ago", category: "critical",
+    icon: Zap, iconBg: "bg-destructive/10", iconColor: "text-destructive",
+    unread: false, group: "earlier",
+  },
+  {
+    id: "10", title: "Authorized Parker Added", description: "Maria Garcia added to Maple Heights.",
+    property: "Maple Heights Apts", time: "5 days ago", category: "configuration",
+    icon: UserPlus, iconBg: "bg-muted", iconColor: "text-muted-foreground",
+    unread: false, group: "earlier",
+  },
 ];
 
 export default function Notifications() {
