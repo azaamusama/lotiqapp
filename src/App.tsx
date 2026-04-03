@@ -56,6 +56,9 @@ const App = () => (
             <Route path="/property/:id/billing/invoices/:invoiceId" element={<InvoiceDetail />} />
             <Route path="/property/:id/billing/payment" element={<PaymentMethod />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/settings/terms" element={<TermsConditions />} />
+            <Route path="/settings/privacy" element={<PrivacyPolicy />} />
+            <Route path="/settings/help" element={<HelpSupport />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </LotIQProvider>

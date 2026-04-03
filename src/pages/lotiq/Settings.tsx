@@ -14,14 +14,14 @@ const sections = [
   {
     label: "SYSTEM & SUPPORT",
     items: [
-      { icon: HelpCircle, title: "Help & Support", subtitle: "Contact support and view documentation", path: "" },
+      { icon: HelpCircle, title: "Help & Support", subtitle: "Contact support and view documentation", path: "/settings/help" },
     ],
   },
   {
     label: "TERMS & POLICIES",
     items: [
-      { icon: FileText, title: "Terms & Condition", path: "" },
-      { icon: ShieldCheck, title: "Privacy Policy", path: "" },
+      { icon: FileText, title: "Terms & Condition", path: "/settings/terms" },
+      { icon: ShieldCheck, title: "Privacy Policy", path: "/settings/privacy" },
     ],
   },
   {
