@@ -120,7 +120,7 @@ export default function Login() {
         {/* Login Button */}
         <Button
           type="submit"
-          className="w-full h-12 rounded-xl font-semibold text-base"
+          className="w-full h-12 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold text-base"
         >
           Log In
         </Button>
