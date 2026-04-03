@@ -23,6 +23,9 @@ import Invoices from "@/pages/lotiq/Invoices";
 import InvoiceDetail from "@/pages/lotiq/InvoiceDetail";
 import PaymentMethod from "@/pages/lotiq/PaymentMethod";
 import Settings from "@/pages/lotiq/Settings";
+import TermsConditions from "@/pages/lotiq/TermsConditions";
+import PrivacyPolicy from "@/pages/lotiq/PrivacyPolicy";
+import HelpSupport from "@/pages/lotiq/HelpSupport";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
