@@ -1,16 +1,10 @@
 import { AppLayout } from "@/components/lotiq/AppLayout";
 import { Card } from "@/components/ui/card";
-import { Bell, HelpCircle, FileText, ShieldCheck, Lock, LogOut, ChevronRight } from "lucide-react";
+import { HelpCircle, FileText, ShieldCheck, Lock, LogOut, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const sections = [
-  {
-    label: "NOTIFICATIONS",
-    items: [
-      { icon: Bell, title: "Notifications", subtitle: "Choose how you receive system alerts", path: "/settings/notifications" },
-    ],
-  },
   {
     label: "SYSTEM & SUPPORT",
     items: [

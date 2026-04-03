@@ -172,7 +172,7 @@ export default function PropertyDetail() {
               iconBg="bg-[hsl(var(--lotiq-blue))]/10"
               title="Notification Settings"
               subtitle="Manage alerts, recipients, and preferences"
-              onClick={() => navigate("/settings/notifications")}
+              onClick={() => navigate(`/property/${id || "prop-1"}/notifications`)}
             />
           </CardContent>
         </Card>

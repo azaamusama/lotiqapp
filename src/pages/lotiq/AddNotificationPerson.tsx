@@ -10,11 +10,12 @@ import {
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 
 export default function AddNotificationPerson() {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [email, setEmail] = useState("");
   const [issue, setIssue] = useState("trash");
   const [config, setConfig] = useState({
@@ -31,14 +32,14 @@ export default function AddNotificationPerson() {
       return;
     }
     toast.success("Person added successfully");
-    navigate("/settings/notifications");
+    navigate(`/property/${id || "prop-1"}/notifications`);
   };
 
   return (
     <AppLayout
       title="Add person"
       headerLeft={
-        <button onClick={() => navigate("/settings/notifications")} className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center">
+        <button onClick={() => navigate(`/property/${id || "prop-1"}/notifications`)} className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center">
           <ArrowLeft className="h-4 w-4 text-foreground" />
         </button>
       }
