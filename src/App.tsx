@@ -13,6 +13,7 @@ import Rules from "@/pages/lotiq/Rules";
 import People from "@/pages/lotiq/People";
 import Vehicles from "@/pages/lotiq/Vehicles";
 import Cameras from "@/pages/lotiq/Cameras";
+import CameraDetail from "@/pages/lotiq/CameraDetail";
 import PropertySetup from "@/pages/lotiq/PropertySetup";
 import Properties from "@/pages/lotiq/Properties";
 import AddProperty from "@/pages/lotiq/AddProperty";
@@ -51,6 +52,7 @@ const App = () => (
             <Route path="/people" element={<People />} />
             <Route path="/vehicles" element={<Vehicles />} />
             <Route path="/cameras" element={<Cameras />} />
+            <Route path="/cameras/:id" element={<CameraDetail />} />
             <Route path="/property" element={<Properties />} />
             <Route path="/property/add" element={<AddProperty />} />
             <Route path="/property/setup" element={<PropertySetup />} />
