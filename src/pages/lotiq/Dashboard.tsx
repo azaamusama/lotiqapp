@@ -1,38 +1,51 @@
 import { AppLayout } from "@/components/lotiq/AppLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLotIQ } from "@/contexts/LotIQContext";
-import { CheckCircle2, Truck, Snowflake, Camera, ShieldAlert, ChevronRight, AlertTriangle, Zap, Building2 } from "lucide-react";
+import { CheckCircle2, Truck, Snowflake, Camera, ShieldAlert, ChevronRight, AlertTriangle, Zap, Building2, Clock, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { formatDistanceToNow } from "date-fns";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { statusIncidents, type VehicleStatus } from "@/lib/status-incidents";
 
-const attentionIconMap: Record<string, { icon: React.ReactNode; bg: string; border: string; labelColor: string }> = {
-  escalated: {
+const attentionStyleMap: Record<string, { icon: React.ReactNode; bg: string; border: string; labelColor: string; statusLabel: string }> = {
+  violation: {
     icon: <AlertTriangle className="h-5 w-5 text-destructive" />,
     bg: "bg-destructive/10",
     border: "border-destructive/20",
     labelColor: "text-destructive",
+    statusLabel: "Violation",
   },
-  active: {
+  tow_requested: {
+    icon: <Truck className="h-5 w-5 text-destructive" />,
+    bg: "bg-destructive/10",
+    border: "border-destructive/20",
+    labelColor: "text-destructive",
+    statusLabel: "Tow Requested",
+  },
+  trash_overflow: {
+    icon: <Trash2 className="h-5 w-5 text-foreground" />,
+    bg: "bg-muted",
+    border: "border-border",
+    labelColor: "text-foreground",
+    statusLabel: "Trash Overflow",
+  },
+  grace: {
+    icon: <Clock className="h-5 w-5 text-warning" />,
+    bg: "bg-warning/10",
+    border: "border-warning/20",
+    labelColor: "text-warning",
+    statusLabel: "Grace Period",
+  },
+  ev: {
     icon: <Zap className="h-5 w-5 text-warning" />,
     bg: "bg-warning/10",
     border: "border-warning/20",
     labelColor: "text-warning",
-  },
-  tow: {
-    icon: <Truck className="h-5 w-5 text-warning" />,
-    bg: "bg-warning/10",
-    border: "border-warning/20",
-    labelColor: "text-warning",
-  },
-  health: {
-    icon: <Building2 className="h-5 w-5 text-destructive" />,
-    bg: "bg-destructive/10",
-    border: "border-destructive/20",
-    labelColor: "text-destructive",
+    statusLabel: "EV Issue",
   },
 };
+
+const attentionStatuses: VehicleStatus[] = ["violation", "tow_requested", "trash_overflow", "grace", "ev"];
 
 export default function Dashboard() {
   const { stats, incidents, towJobs } = useLotIQ();
@@ -56,41 +69,24 @@ export default function Dashboard() {
     fetchProfile();
   }, []);
 
-  const activeIncidents = incidents.filter(i => i.status === "active" || i.status === "escalated").slice(0, 3);
-  const activeTowItems = towJobs.filter(t => !["completed", "cancelled"].includes(t.status)).slice(0, 1);
-
-  const attentionItems = [
-    ...activeIncidents.map(inc => {
-      const style = inc.status === "escalated" ? attentionIconMap.escalated : attentionIconMap.active;
+  // Pull attention items from the shared status incidents data
+  const attentionItems = statusIncidents
+    .filter(inc => attentionStatuses.includes(inc.status))
+    .map(inc => {
+      const style = attentionStyleMap[inc.status];
       return {
         id: inc.id,
         property: inc.zone,
-        label: inc.title,
-        time: formatDistanceToNow(new Date(inc.timestamp), { addSuffix: true }),
-        ...style,
+        label: inc.description,
+        status: style?.statusLabel || inc.status,
+        time: inc.time,
+        icon: style?.icon,
+        bg: style?.bg || "bg-muted",
+        border: style?.border || "border-border",
+        labelColor: style?.labelColor || "text-foreground",
         onClick: () => navigate(`/incidents/${inc.id}`),
       };
-    }),
-    ...activeTowItems.map(tow => {
-      const style = attentionIconMap.tow;
-      return {
-        id: tow.id,
-        property: tow.vehicleDescription,
-        label: "Tow in progress",
-        time: formatDistanceToNow(new Date(tow.requestedAt), { addSuffix: true }),
-        ...style,
-        onClick: () => navigate("/towing"),
-      };
-    }),
-    {
-      id: "health-1",
-      property: incidents[0]?.zone || "Main Property",
-      label: "Property health 65%",
-      time: "5 minutes ago",
-      ...attentionIconMap.health,
-      onClick: () => navigate("/property"),
-    },
-  ];
+    });
 
   return (
     <AppLayout title={firstName ? `Hi, ${firstName}` : "Hi there"}>
@@ -111,8 +107,13 @@ export default function Dashboard() {
                   {item.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-foreground truncate">{item.property}</p>
-                  <p className={`text-xs font-medium ${item.labelColor}`}>{item.label}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium text-foreground truncate">{item.property}</p>
+                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${item.bg} ${item.labelColor} shrink-0`}>
+                      {item.status}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground truncate">{item.label}</p>
                   <p className="text-[10px] text-muted-foreground">{item.time}</p>
                 </div>
                 <ChevronRight className="h-4 w-4 text-muted-foreground shrink-0" />
