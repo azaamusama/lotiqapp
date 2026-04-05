@@ -65,7 +65,7 @@ export default function Properties() {
     <AppLayout
       title="Properties"
       headerRight={
-        <Button size="icon" className="h-9 w-9 rounded-xl" onClick={() => navigate("/property/add")}>
+        <Button size="icon" className="h-9 w-9 rounded-xl shadow-subtle" onClick={() => navigate("/property/add")}>
           <Plus className="h-5 w-5" />
         </Button>
       }
@@ -77,7 +77,7 @@ export default function Properties() {
           placeholder="Search properties..."
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="pl-9 h-10 rounded-xl"
+          className="pl-9 h-10 rounded-xl bg-card shadow-subtle"
           maxLength={100}
         />
       </div>
@@ -90,11 +90,10 @@ export default function Properties() {
           return (
             <Card
               key={prop.id}
-              className="cursor-pointer hover:bg-muted/30 transition-colors"
+              className="cursor-pointer hover:shadow-elevated transition-all shadow-card"
               onClick={() => navigate(`/property/${prop.id}`)}
             >
               <CardContent className="p-4">
-                {/* Top row: icon + name/address + status badge + chevron */}
                 <div className="flex items-start gap-3 mb-3">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                     <Building2 className="h-5 w-5 text-primary" />
@@ -104,23 +103,22 @@ export default function Properties() {
                     <p className="text-xs text-muted-foreground truncate">{prop.address}</p>
                   </div>
                   <div className="flex items-center gap-1.5 shrink-0">
-                    <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-[hsl(var(--lotiq-green))]/10 text-[hsl(var(--lotiq-green))] capitalize">
+                    <span className="text-[10px] font-medium px-2.5 py-1 rounded-full bg-success/10 text-success capitalize">
                       {prop.status}
                     </span>
                     <ChevronRight className="h-4 w-4 text-muted-foreground" />
                   </div>
                 </div>
 
-                {/* Camera row */}
                 <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2 pb-2 border-b border-border/50">
                   <span className="flex items-center gap-1">
                     <Camera className="h-3.5 w-3.5" />
                     {prop.cameras} cameras
                   </span>
                   <span className={`flex items-center gap-1 font-medium ${
-                    allOnline ? "text-[hsl(var(--lotiq-green))]" :
+                    allOnline ? "text-success" :
                     allOffline ? "text-destructive" :
-                    "text-[hsl(var(--lotiq-amber))]"
+                    "text-warning"
                   }`}>
                     {allOffline ? (
                       <WifiOff className="h-3.5 w-3.5" />
@@ -131,7 +129,6 @@ export default function Properties() {
                   </span>
                 </div>
 
-                {/* Stats row */}
                 <div className="flex items-center gap-3 flex-wrap">
                   {prop.violations > 0 && (
                     <span className="flex items-center gap-1 text-xs font-medium text-destructive">
@@ -140,7 +137,7 @@ export default function Properties() {
                     </span>
                   )}
                   {prop.towRequested > 0 && (
-                    <span className="flex items-center gap-1 text-xs font-medium text-[hsl(var(--lotiq-amber))]">
+                    <span className="flex items-center gap-1 text-xs font-medium text-warning">
                       <Truck className="h-3.5 w-3.5" />
                       {prop.towRequested} tow requested
                     </span>
@@ -157,7 +154,7 @@ export default function Properties() {
           );
         })}
         {filtered.length === 0 && (
-          <Card>
+          <Card className="shadow-card">
             <CardContent className="p-6 text-center text-sm text-muted-foreground">
               No properties match "{search}"
             </CardContent>

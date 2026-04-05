@@ -11,25 +11,25 @@ const attentionIconMap: Record<string, { icon: React.ReactNode; bg: string; bord
   escalated: {
     icon: <AlertTriangle className="h-5 w-5 text-destructive" />,
     bg: "bg-destructive/10",
-    border: "border-destructive/40",
+    border: "border-destructive/20",
     labelColor: "text-destructive",
   },
   active: {
-    icon: <Zap className="h-5 w-5 text-[hsl(var(--lotiq-amber))]" />,
-    bg: "bg-[hsl(var(--lotiq-amber))]/10",
-    border: "border-[hsl(var(--lotiq-amber))]/40",
-    labelColor: "text-[hsl(var(--lotiq-amber))]",
+    icon: <Zap className="h-5 w-5 text-warning" />,
+    bg: "bg-warning/10",
+    border: "border-warning/20",
+    labelColor: "text-warning",
   },
   tow: {
-    icon: <Truck className="h-5 w-5 text-[hsl(var(--lotiq-amber))]" />,
-    bg: "bg-[hsl(var(--lotiq-amber))]/10",
-    border: "border-[hsl(var(--lotiq-amber))]/40",
-    labelColor: "text-[hsl(var(--lotiq-amber))]",
+    icon: <Truck className="h-5 w-5 text-warning" />,
+    bg: "bg-warning/10",
+    border: "border-warning/20",
+    labelColor: "text-warning",
   },
   health: {
     icon: <Building2 className="h-5 w-5 text-destructive" />,
     bg: "bg-destructive/10",
-    border: "border-destructive/40",
+    border: "border-destructive/20",
     labelColor: "text-destructive",
   },
 };
@@ -56,7 +56,6 @@ export default function Dashboard() {
     fetchProfile();
   }, []);
 
-  // Build attention items from active/escalated incidents + active tows
   const activeIncidents = incidents.filter(i => i.status === "active" || i.status === "escalated").slice(0, 3);
   const activeTowItems = towJobs.filter(t => !["completed", "cancelled"].includes(t.status)).slice(0, 1);
 
@@ -83,7 +82,6 @@ export default function Dashboard() {
         onClick: () => navigate("/towing"),
       };
     }),
-    // Add a property health item
     {
       id: "health-1",
       property: incidents[0]?.zone || "Main Property",
@@ -98,30 +96,31 @@ export default function Dashboard() {
     <AppLayout title={firstName ? `Hi, ${firstName}` : "Hi there"}>
       {/* REQUIRES ATTENTION */}
       <section className="mb-6">
-        <h3 className="text-[10px] md:text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
+        <h3 className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">
           Requires Attention
         </h3>
         <div className="space-y-2.5">
           {attentionItems.map((item) => (
             <Card
               key={item.id}
-              className={`border-2 ${item.border} cursor-pointer hover:bg-muted/30 transition-colors`}
+              className={`border ${item.border} cursor-pointer hover:shadow-elevated transition-all`}
               onClick={item.onClick}
             >
-              <CardContent className="p-3 md:p-4 flex items-center gap-3">
+              <CardContent className="p-3.5 flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-xl ${item.bg} flex items-center justify-center shrink-0`}>
                   {item.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-foreground truncate">{item.property}</p>
+                  <p className="text-sm font-medium text-foreground truncate">{item.property}</p>
                   <p className={`text-xs font-medium ${item.labelColor}`}>{item.label}</p>
                   <p className="text-[10px] text-muted-foreground">{item.time}</p>
                 </div>
+                <ChevronRight className="h-4 w-4 text-muted-foreground shrink-0" />
               </CardContent>
             </Card>
           ))}
           {attentionItems.length === 0 && (
-            <Card>
+            <Card className="shadow-card">
               <CardContent className="p-6 text-center text-sm text-muted-foreground">
                 All clear — no items require attention
               </CardContent>
@@ -132,12 +131,12 @@ export default function Dashboard() {
 
       {/* PENDING ACTIVATION */}
       <section className="mb-6">
-        <h3 className="text-[10px] md:text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
+        <h3 className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">
           Pending Activation
         </h3>
         <button
           onClick={() => navigate("/property")}
-          className="w-full rounded-xl bg-primary p-4 flex items-center gap-3 text-left hover:bg-primary/90 transition-colors"
+          className="w-full rounded-xl bg-primary p-4 flex items-center gap-3 text-left hover:bg-primary/90 transition-all shadow-elevated hover:shadow-float"
         >
           <div className="w-10 h-10 rounded-full bg-primary-foreground/20 flex items-center justify-center">
             <CheckCircle2 className="h-5 w-5 text-primary-foreground" />
@@ -152,7 +151,7 @@ export default function Dashboard() {
 
       {/* PORTFOLIO OVERVIEW */}
       <section className="mb-6">
-        <h3 className="text-[10px] md:text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
+        <h3 className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">
           Portfolio Overview
         </h3>
         <div className="grid grid-cols-2 gap-3">
@@ -163,20 +162,20 @@ export default function Dashboard() {
             label="Active Violations"
           />
           <OverviewStat
-            icon={<Truck className="h-5 w-5 text-[hsl(var(--lotiq-amber))]" />}
-            iconBg="bg-[hsl(var(--lotiq-amber))]/10"
+            icon={<Truck className="h-5 w-5 text-warning" />}
+            iconBg="bg-warning/10"
             value={stats.activeTows}
             label="Tows in Progress"
           />
           <OverviewStat
-            icon={<Snowflake className="h-5 w-5 text-[hsl(var(--lotiq-blue))]" />}
-            iconBg="bg-[hsl(var(--lotiq-blue))]/10"
+            icon={<Snowflake className="h-5 w-5 text-primary" />}
+            iconBg="bg-primary/10"
             value={incidents.filter(i => i.type === "hazardous_condition" && i.status !== "resolved").length}
             label="Slip Risk Alerts"
           />
           <OverviewStat
-            icon={<Camera className="h-5 w-5 text-primary" />}
-            iconBg="bg-primary/10"
+            icon={<Camera className="h-5 w-5 text-success" />}
+            iconBg="bg-success/10"
             value={`${stats.camerasOnline}/8`}
             label="Cameras Online"
           />
@@ -188,13 +187,13 @@ export default function Dashboard() {
 
 function OverviewStat({ icon, iconBg, value, label }: { icon: React.ReactNode; iconBg: string; value: string | number; label: string }) {
   return (
-    <Card>
-      <CardContent className="p-4 flex flex-col items-start gap-2">
+    <Card className="shadow-card hover:shadow-elevated transition-shadow">
+      <CardContent className="p-4 flex flex-col items-start gap-2.5">
         <div className={`w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center`}>
           {icon}
         </div>
-        <p className="text-2xl font-bold font-mono-data">{value}</p>
-        <p className="text-[10px] md:text-xs text-muted-foreground">{label}</p>
+        <p className="text-2xl font-bold font-mono-data tracking-tight">{value}</p>
+        <p className="text-[11px] text-muted-foreground">{label}</p>
       </CardContent>
     </Card>
   );

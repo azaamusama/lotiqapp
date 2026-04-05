@@ -30,20 +30,20 @@ const cameras: CameraItem[] = [
 ];
 
 const statusColor: Record<CameraStatus, string> = {
-  online: "text-[hsl(var(--lotiq-green))]",
-  degraded: "text-[hsl(var(--lotiq-amber))]",
+  online: "text-success",
+  degraded: "text-warning",
   offline: "text-destructive",
 };
 
 const statusDot: Record<CameraStatus, string> = {
-  online: "bg-[hsl(var(--lotiq-green))]",
-  degraded: "bg-[hsl(var(--lotiq-amber))]",
+  online: "bg-success",
+  degraded: "bg-warning",
   offline: "bg-destructive",
 };
 
 const statusBg: Record<CameraStatus, string> = {
-  online: "bg-[hsl(var(--lotiq-green))]/10",
-  degraded: "bg-[hsl(var(--lotiq-amber))]/10",
+  online: "bg-success/10",
+  degraded: "bg-warning/10",
   offline: "bg-destructive/10",
 };
 
@@ -59,26 +59,26 @@ export default function Cameras() {
     <AppLayout
       title="Cameras"
       headerLeft={
-        <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-xl bg-muted flex items-center justify-center">
+        <button onClick={() => navigate(-1)} className="w-9 h-9 rounded-xl bg-secondary flex items-center justify-center shadow-subtle hover:bg-accent transition-colors">
           <ArrowLeft className="h-4 w-4 text-foreground" />
         </button>
       }
     >
       {/* Status summary */}
       <div className="grid grid-cols-3 gap-3 mb-4">
-        <Card>
+        <Card className="shadow-card">
           <CardContent className="p-3 text-center">
-            <p className="text-2xl font-bold text-[hsl(var(--lotiq-green))]">{online}</p>
+            <p className="text-2xl font-bold text-success">{online}</p>
             <p className="text-[10px] text-muted-foreground">Online</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="shadow-card">
           <CardContent className="p-3 text-center">
-            <p className="text-2xl font-bold text-[hsl(var(--lotiq-amber))]">{degraded}</p>
+            <p className="text-2xl font-bold text-warning">{degraded}</p>
             <p className="text-[10px] text-muted-foreground">Degraded</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="shadow-card">
           <CardContent className="p-3 text-center">
             <p className="text-2xl font-bold text-destructive">{offline}</p>
             <p className="text-[10px] text-muted-foreground">Offline</p>
@@ -87,12 +87,12 @@ export default function Cameras() {
       </div>
 
       {/* View toggle */}
-      <Card className="mb-4">
+      <Card className="mb-4 shadow-card">
         <CardContent className="p-1 flex">
           <button
             onClick={() => setView("list")}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-colors ${
-              view === "list" ? "bg-muted text-foreground" : "text-muted-foreground"
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all ${
+              view === "list" ? "bg-secondary text-foreground shadow-subtle" : "text-muted-foreground"
             }`}
           >
             <List className="h-4 w-4" />
@@ -100,8 +100,8 @@ export default function Cameras() {
           </button>
           <button
             onClick={() => setView("grid")}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-colors ${
-              view === "grid" ? "bg-muted text-foreground" : "text-muted-foreground"
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all ${
+              view === "grid" ? "bg-secondary text-foreground shadow-subtle" : "text-muted-foreground"
             }`}
           >
             <LayoutGrid className="h-4 w-4" />
@@ -113,7 +113,7 @@ export default function Cameras() {
       {/* Camera list/grid */}
       <div className={view === "grid" ? "grid grid-cols-2 gap-3" : "space-y-3"}>
         {cameras.map((cam) => (
-          <Card key={cam.id} className="overflow-hidden cursor-pointer" onClick={() => navigate(`/cameras/${cam.id}`)}>
+          <Card key={cam.id} className="overflow-hidden cursor-pointer shadow-card hover:shadow-elevated transition-all" onClick={() => navigate(`/cameras/${cam.id}`)}>
             <div className="relative">
               <img
                 src={cam.image}
@@ -124,14 +124,14 @@ export default function Cameras() {
                 className={`w-full ${view === "grid" ? "h-28" : "h-44"} object-cover`}
               />
               <div className="absolute top-2 left-2">
-                <span className="inline-flex items-center gap-1 bg-card/90 backdrop-blur-sm rounded-full px-2.5 py-1 text-[10px] font-medium text-foreground">
+                <span className="inline-flex items-center gap-1.5 bg-card/90 backdrop-blur-sm rounded-full px-2.5 py-1 text-[10px] font-medium text-foreground shadow-subtle">
                   <span className={`w-1.5 h-1.5 rounded-full ${statusDot[cam.status]}`} />
                   {cam.name}
                 </span>
               </div>
             </div>
 
-            <CardContent className={view === "grid" ? "p-2.5" : "p-3"}>
+            <CardContent className={view === "grid" ? "p-2.5" : "p-3.5"}>
               <div className="flex items-start justify-between mb-1">
                 <div className="min-w-0">
                   <p className={`${view === "grid" ? "text-xs" : "text-sm"} font-semibold text-foreground truncate`}>{cam.name}</p>
