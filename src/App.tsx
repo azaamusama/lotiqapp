@@ -78,6 +78,7 @@ const App = () => (
               <Route path="/property/setup" element={<PropertySetup />} />
               <Route path="/property/:id" element={<PropertyDetail />} />
               <Route path="/property/:id/slip-fall" element={<SlipFallAnalysis />} />
+              <Route path="/property/:id/reports" element={<PropertyReporting />} />
               <Route path="/property/:id/monitoring" element={<MonitoringRules />} />
               <Route path="/property/:id/parkers" element={<AuthorizedParkers />} />
               <Route path="/property/:id/parkers/invite" element={<InviteParker />} />

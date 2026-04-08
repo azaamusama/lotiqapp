@@ -142,6 +142,24 @@ export default function PropertyDetail() {
         </div>
       </section>
 
+      {/* REPORTS */}
+      <section className="mb-6">
+        <h3 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mb-3">
+          Reports
+        </h3>
+        <Card>
+          <CardContent className="p-0">
+            <DetailRow
+              icon={<BarChart3 className="h-5 w-5 text-primary" />}
+              iconBg="bg-primary/10"
+              title="Property Reports"
+              subtitle="Weekly, monthly & yearly analytics"
+              onClick={() => navigate(`/property/${id || "prop-1"}/reports`)}
+            />
+          </CardContent>
+        </Card>
+      </section>
+
       {/* BILLING */}
       <section className="mb-6">
         <h3 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mb-3">
