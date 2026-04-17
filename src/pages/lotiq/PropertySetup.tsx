@@ -601,8 +601,8 @@ export default function PropertySetup() {
             </Button>
           </div>
         ) : step === 5 ? (
-          <Button className="w-full h-12 rounded-xl text-base font-semibold" onClick={next}>
-            Add Payment Information
+          <Button className="w-full h-12 rounded-xl text-base font-semibold" onClick={next} disabled={!agreeTerms}>
+            {paymentMethod === "ach" ? "Add Payment Information" : "Continue"}
           </Button>
         ) : step === 6 ? (
           <Button className="w-full h-12 rounded-xl text-base font-semibold" onClick={next} disabled={!selectedDate || !selectedTimeSlot}>
