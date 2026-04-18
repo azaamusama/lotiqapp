@@ -51,11 +51,13 @@ export default function PropertySetup() {
 
   // (Services step removed)
 
-  // Step 3 – Property Mapping
+  // Step 2 – Property Mapping
   const [hasUnderground, setHasUnderground] = useState(false);
   const [parkingSpots, setParkingSpots] = useState("");
   const [indoorMonitoring, setIndoorMonitoring] = useState(false);
   const [indoorCameras, setIndoorCameras] = useState("");
+  const [trashMonitoring, setTrashMonitoring] = useState(false);
+  const [trashSpots, setTrashSpots] = useState("");
 
   // Step 4 – Tow Partner
   const [towCompanyName, setTowCompanyName] = useState("");
@@ -196,6 +198,19 @@ export default function PropertySetup() {
                 </div>
                 <Switch checked={hasUnderground} onCheckedChange={setHasUnderground} />
               </div>
+              {hasUnderground && (
+                <div className="animate-accordion-down overflow-hidden">
+                  <Label className="text-xs text-muted-foreground">Number of Parking Spots</Label>
+                  <Input
+                    type="number"
+                    min={1}
+                    placeholder="e.g. 120"
+                    value={parkingSpots}
+                    onChange={(e) => setParkingSpots(e.target.value)}
+                    className="mt-1.5"
+                  />
+                </div>
+              )}
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium">Indoor monitoring</p>
@@ -213,21 +228,27 @@ export default function PropertySetup() {
                     onChange={(e) => setIndoorCameras(e.target.value)}
                     className="mt-1.5"
                   />
-                  <p className="text-xs text-muted-foreground mt-1.5">
-                    This is just an estimate — LotIQ will finalize camera placement during setup.
-                  </p>
                 </div>
               )}
-              <div>
-                <Label className="text-xs text-muted-foreground">Number of Parking Spots</Label>
-                <Input
-                  type="number"
-                  placeholder="e.g. 120"
-                  value={parkingSpots}
-                  onChange={(e) => setParkingSpots(e.target.value)}
-                  className="mt-1.5"
-                />
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium">Do you want trash monitoring?</p>
+                </div>
+                <Switch checked={trashMonitoring} onCheckedChange={setTrashMonitoring} />
               </div>
+              {trashMonitoring && (
+                <div className="animate-accordion-down overflow-hidden">
+                  <Label className="text-xs text-muted-foreground">Number of trash spots</Label>
+                  <Input
+                    type="number"
+                    min={1}
+                    placeholder="e.g. 4"
+                    value={trashSpots}
+                    onChange={(e) => setTrashSpots(e.target.value)}
+                    className="mt-1.5"
+                  />
+                </div>
+              )}
             </div>
           </div>
         )}
