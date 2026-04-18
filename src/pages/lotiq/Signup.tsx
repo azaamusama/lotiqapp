@@ -62,7 +62,7 @@ export default function Signup() {
   const [hasTowAgreement, setHasTowAgreement] = useState(true);
 
   // Step 5 – Pricing
-  const [pricingTab, setPricingTab] = useState<"quarterly" | "monthly" | "annual">("quarterly");
+  const [pricingTab, setPricingTab] = useState<"quarterly" | "yearly" | "monthly">("quarterly");
   const [selectedPlan, setSelectedPlan] = useState("standard");
 
   // Step 6 – Payment
@@ -89,13 +89,13 @@ export default function Signup() {
 
   const pricingPlans = {
     quarterly: [
-      { id: "standard", name: "Standard", price: "$22/mth", desc: "Billed $66 quarterly", recommended: true },
+      { id: "standard", name: "Standard", price: "$22/mth", desc: "Billed $66 quarterly" },
+    ],
+    yearly: [
+      { id: "standard", name: "Standard", price: "$20/mth", desc: "Billed $240 annually" },
     ],
     monthly: [
-      { id: "standard", name: "Standard", price: "$24/mth", desc: "Switch to quarterly to save more", recommended: false },
-    ],
-    annual: [
-      { id: "standard", name: "Standard", price: "$20/mth", desc: "Billed $240 annually", recommended: false },
+      { id: "standard", name: "Standard", price: "$24/mth", desc: "Switch to quarterly to save more" },
     ],
   };
 
@@ -311,10 +311,19 @@ export default function Signup() {
               <p className="text-sm text-muted-foreground mt-1">Transparent pricing, confirmed after on-site assessment.</p>
             </div>
             <div className="flex rounded-xl bg-muted p-1">
-              {(["quarterly", "monthly", "annual"] as const).map((tab) => (
-                <button key={tab} onClick={() => setPricingTab(tab)}
-                  className={`flex-1 py-2 text-xs font-medium rounded-lg capitalize transition-colors ${pricingTab === tab ? "bg-background text-foreground shadow-sm" : "text-muted-foreground"}`}>
-                  {tab}
+              {([
+                { id: "quarterly", label: "Quarterly", badge: "Recommended" },
+                { id: "yearly", label: "Yearly", badge: "Cheapest" },
+                { id: "monthly", label: "Monthly", badge: "" },
+              ] as const).map((tab) => (
+                <button key={tab.id} onClick={() => setPricingTab(tab.id)}
+                  className={`flex-1 py-2 text-xs font-medium rounded-lg transition-colors flex flex-col items-center justify-center gap-0.5 ${pricingTab === tab.id ? "bg-background text-foreground shadow-sm" : "text-muted-foreground"}`}>
+                  <span>{tab.label}</span>
+                  {tab.badge && (
+                    <span className="text-[9px] font-medium px-1.5 py-0.5 rounded-full bg-primary/10 text-primary leading-none">
+                      {tab.badge}
+                    </span>
+                  )}
                 </button>
               ))}
             </div>
@@ -322,9 +331,6 @@ export default function Signup() {
               {pricingPlans[pricingTab].map((plan) => (
                 <button key={plan.id} onClick={() => setSelectedPlan(plan.id)}
                   className={`w-full text-left p-4 rounded-xl border-2 transition-colors ${selectedPlan === plan.id ? "border-primary" : "border-border"}`}>
-                  {plan.recommended && (
-                    <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary mb-2 inline-block">Recommended</span>
-                  )}
                   <p className="text-2xl font-bold text-foreground">{plan.price}</p>
                   <p className="text-sm font-semibold text-foreground">{plan.name}</p>
                   <p className="text-xs text-primary mt-1 whitespace-pre-line">{plan.desc}</p>
