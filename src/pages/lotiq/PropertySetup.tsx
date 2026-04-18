@@ -302,7 +302,7 @@ export default function PropertySetup() {
               {([
                 { id: "quarterly", label: "Quarterly", badge: "Recommended" },
                 { id: "yearly", label: "Yearly", badge: "Cheapest" },
-                { id: "monthly", label: "Monthly" },
+                { id: "monthly", label: "Monthly", badge: "" },
               ] as const).map((tab) => (
                 <button
                   key={tab.id}

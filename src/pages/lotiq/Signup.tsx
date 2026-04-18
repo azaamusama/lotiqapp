@@ -314,7 +314,7 @@ export default function Signup() {
               {([
                 { id: "quarterly", label: "Quarterly", badge: "Recommended" },
                 { id: "yearly", label: "Yearly", badge: "Cheapest" },
-                { id: "monthly", label: "Monthly" },
+                { id: "monthly", label: "Monthly", badge: "" },
               ] as const).map((tab) => (
                 <button key={tab.id} onClick={() => setPricingTab(tab.id)}
                   className={`flex-1 py-2 text-xs font-medium rounded-lg transition-colors flex flex-col items-center justify-center gap-0.5 ${pricingTab === tab.id ? "bg-background text-foreground shadow-sm" : "text-muted-foreground"}`}>
