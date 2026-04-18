@@ -53,6 +53,8 @@ export default function Signup() {
   const [parkingSpots, setParkingSpots] = useState("");
   const [indoorMonitoring, setIndoorMonitoring] = useState(false);
   const [indoorCameras, setIndoorCameras] = useState("");
+  const [trashMonitoring, setTrashMonitoring] = useState(false);
+  const [trashSpots, setTrashSpots] = useState("");
 
   // Step 4 – Tow Partner
   const [towCompanyName, setTowCompanyName] = useState("");
@@ -230,6 +232,13 @@ export default function Signup() {
                 <p className="text-sm font-medium">Do you have underground parking?</p>
                 <Switch checked={hasUnderground} onCheckedChange={setHasUnderground} />
               </div>
+              {hasUnderground && (
+                <div className="animate-accordion-down overflow-hidden">
+                  <Field label="Number of Parking Spots">
+                    <Input type="number" min={1} placeholder="e.g. 120" value={parkingSpots} onChange={(e) => setParkingSpots(e.target.value)} className="mt-1.5" />
+                  </Field>
+                </div>
+              )}
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium">Indoor monitoring</p>
                 <Switch checked={indoorMonitoring} onCheckedChange={setIndoorMonitoring} />
@@ -245,15 +254,20 @@ export default function Signup() {
                       onChange={(e) => setIndoorCameras(e.target.value)}
                       className="mt-1.5"
                     />
-                    <p className="text-xs text-muted-foreground mt-1.5">
-                      This is just an estimate — LotIQ will finalize camera placement during setup.
-                    </p>
                   </Field>
                 </div>
               )}
-              <Field label="Number of Parking Spots">
-                <Input type="number" placeholder="e.g. 120" value={parkingSpots} onChange={(e) => setParkingSpots(e.target.value)} className="mt-1.5" />
-              </Field>
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-medium">Do you want trash monitoring?</p>
+                <Switch checked={trashMonitoring} onCheckedChange={setTrashMonitoring} />
+              </div>
+              {trashMonitoring && (
+                <div className="animate-accordion-down overflow-hidden">
+                  <Field label="Number of trash spots">
+                    <Input type="number" min={1} placeholder="e.g. 4" value={trashSpots} onChange={(e) => setTrashSpots(e.target.value)} className="mt-1.5" />
+                  </Field>
+                </div>
+              )}
             </div>
           </div>
         )}
