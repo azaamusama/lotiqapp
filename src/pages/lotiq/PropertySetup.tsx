@@ -69,7 +69,7 @@ export default function PropertySetup() {
   const [selectedPlan, setSelectedPlan] = useState("standard");
 
   // Step 6 – Payment
-  const [paymentMethod, setPaymentMethod] = useState<"ach" | "cheque" | "monthly">("ach");
+  const [paymentMethod, setPaymentMethod] = useState<"ach" | "check" | "monthly">("ach");
   const [nameOnAccount, setNameOnAccount] = useState("Sarah Johnson");
   const [routingNumber, setRoutingNumber] = useState("110000000");
   const [accountNumber, setAccountNumber] = useState("000123456789");
@@ -333,14 +333,6 @@ export default function PropertySetup() {
                   <p className="text-2xl font-bold text-foreground">{plan.price}</p>
                   <p className="text-sm font-semibold text-foreground">{plan.name}</p>
                   <p className="text-xs text-primary mt-1 whitespace-pre-line">{plan.desc}</p>
-                  <div className="mt-3 space-y-1.5">
-                    <p className="text-xs text-muted-foreground font-medium">Services Include:</p>
-                    {["Camera Hardware", "Installation", "Platform Fee"].map((s) => (
-                      <div key={s} className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-primary" /> {s}
-                      </div>
-                    ))}
-                  </div>
                 </button>
               ))}
             </div>
@@ -358,8 +350,8 @@ export default function PropertySetup() {
             <RadioGroup value={paymentMethod} onValueChange={(v) => setPaymentMethod(v as typeof paymentMethod)} className="space-y-3">
               {[
                 { id: "ach", label: "ACH / Bank Transfer", badge: "Recommended" },
-                { id: "cheque", label: "Bank Cheque" },
                 { id: "monthly", label: "Monthly Push to Account" },
+                { id: "check", label: "Bank Check" },
               ].map((opt) => {
                 const isSelected = paymentMethod === opt.id;
                 return (
@@ -409,9 +401,9 @@ export default function PropertySetup() {
                           </div>
                         )}
 
-                        {opt.id === "cheque" && (
+                        {opt.id === "check" && (
                           <div className="space-y-3">
-                            <p className="text-sm text-foreground">Please send a cheque to the following address:</p>
+                            <p className="text-sm text-foreground">Please send a check to the following address:</p>
                             <Card className="border border-border bg-background">
                               <CardContent className="p-4">
                                 <p className="text-sm font-semibold text-foreground">LotIQ Inc.</p>
@@ -420,7 +412,7 @@ export default function PropertySetup() {
                                 <p className="text-sm text-muted-foreground">United States</p>
                               </CardContent>
                             </Card>
-                            <p className="text-xs text-muted-foreground">Your account will be activated once the cheque is received.</p>
+                            <p className="text-xs text-muted-foreground">Your account will be activated once the check is received.</p>
                           </div>
                         )}
 
