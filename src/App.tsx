@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LotIQProvider } from "@/contexts/LotIQContext";
 
 import Splash from "@/pages/lotiq/Splash";
+import Onboarding from "@/pages/lotiq/Onboarding";
 import Login from "@/pages/lotiq/Login";
 import ForgotPassword from "@/pages/lotiq/ForgotPassword";
 import VerificationLink from "@/pages/lotiq/VerificationLink";
@@ -60,6 +61,7 @@ const App = () => (
           <LotIQProvider>
             <Routes>
               <Route path="/" element={<Splash />} />
+              <Route path="/onboarding" element={<Onboarding />} />
               <Route path="/login" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/forgot-password/verify" element={<VerificationLink />} />
