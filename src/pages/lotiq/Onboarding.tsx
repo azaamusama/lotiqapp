@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Camera, CheckCircle2, CircleDot, Clock3, FileCheck2, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import lotiqLogo from "@/assets/lotiq-logo.svg";
 
 const steps = [
   {
@@ -26,7 +27,7 @@ const steps = [
 
 function VisibilityVisual() {
   return (
-    <div className="rounded-2xl border border-border bg-card p-4 shadow-float">
+    <div className="rounded-2xl border border-border bg-card p-3 shadow-float sm:p-4">
       <div className="flex items-center justify-between border-b border-border pb-3">
         <div>
           <p className="text-xs font-medium text-muted-foreground">North Lot</p>
@@ -36,9 +37,9 @@ function VisibilityVisual() {
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" /> Live
         </span>
       </div>
-      <div className="mt-4 grid grid-cols-2 gap-3">
+      <div className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3">
         {["Entry", "EV Bay", "Loading", "Rear"].map((label, index) => (
-          <div key={label} className="aspect-[4/3] rounded-xl border border-border bg-secondary p-3">
+          <div key={label} className="aspect-[4/3] rounded-xl border border-border bg-secondary p-2.5 sm:p-3">
             <div className="flex items-center justify-between text-[10px] text-muted-foreground">
               <span>{label}</span>
               <Camera className="h-3 w-3" />
@@ -55,8 +56,8 @@ function VisibilityVisual() {
 
 function EnforcementVisual() {
   return (
-    <div className="rounded-2xl border border-border bg-card p-4 shadow-float">
-      <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
+    <div className="rounded-2xl border border-border bg-card p-3 shadow-float sm:p-4">
+      <div className="rounded-xl border border-primary/30 bg-primary/5 p-3.5 sm:p-4">
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="text-xs font-medium text-primary">Violation detected</p>
@@ -79,7 +80,7 @@ function EnforcementVisual() {
 
 function EvidenceVisual() {
   return (
-    <div className="rounded-2xl border border-border bg-card p-4 shadow-float">
+    <div className="rounded-2xl border border-border bg-card p-3 shadow-float sm:p-4">
       <div className="aspect-video rounded-xl bg-secondary p-3">
         <div className="h-full rounded-lg border border-border bg-background p-3">
           <div className="flex h-full items-end justify-between">
@@ -123,31 +124,26 @@ export default function Onboarding() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-5 py-5 sm:px-8 lg:px-10">
+      <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-5 py-5 sm:px-8 lg:px-10">
         <header className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
-              <ShieldCheck className="h-5 w-5 text-primary" />
-            </div>
-            <span className="text-base font-semibold tracking-tight">Lot<span className="text-primary">IQ</span></span>
-          </div>
+          <img src={lotiqLogo} alt="LotIQ" className="h-8 w-auto" />
           <button onClick={() => navigate("/login")} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
             Skip
           </button>
         </header>
 
-        <section className="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-          <div key={step.headline} className="animate-fade-in space-y-6">
+        <section className="flex flex-1 flex-col justify-center gap-7 py-8 sm:gap-9 sm:py-10">
+          <div key={step.headline} className="animate-fade-in space-y-5">
             <div className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{step.eyebrow}</p>
-              <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <h1 className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
                 {step.headline}
               </h1>
-              <p className="max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">{step.body}</p>
+              <p className="max-w-xl text-[15px] leading-7 text-muted-foreground sm:text-lg">{step.body}</p>
             </div>
           </div>
 
-          <div key={step.visual} className="animate-fade-in lg:translate-y-3">
+          <div key={step.visual} className="animate-fade-in">
             <OnboardingVisual type={step.visual} />
           </div>
         </section>
