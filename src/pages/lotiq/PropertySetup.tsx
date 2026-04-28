@@ -330,12 +330,13 @@ export default function PropertySetup() {
                     selectedPlan === plan.id ? "border-primary" : "border-border"
                   }`}
                 >
-                  <p className="text-2xl font-bold text-foreground">{plan.price}</p>
+                  <p className="text-2xl font-bold text-foreground">{plan.price}*</p>
                   <p className="text-sm font-semibold text-foreground">{plan.name}</p>
                   <p className="text-xs text-primary mt-1 whitespace-pre-line">{plan.desc}</p>
                 </button>
               ))}
             </div>
+            <p className="text-[11px] text-muted-foreground mt-3">* Tax applied</p>
           </div>
         )}
 
