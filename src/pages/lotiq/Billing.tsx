@@ -96,7 +96,7 @@ export default function Billing() {
             <div className="space-y-3">
               {[
                 ["Plan", "Managed Service Plan"],
-                ["Monthly Charge", "$299/mo"],
+                ["Monthly Charge", "$299/mo*"],
                 ["Billing Cycle", "Monthly"],
                 ["Property", propertyName],
                 ["Start Date", "Sep 1, 2025"],
