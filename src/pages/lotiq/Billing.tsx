@@ -108,7 +108,10 @@ export default function Billing() {
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-muted-foreground mt-4 mb-3">
+            <p className="text-[10px] text-muted-foreground mt-4 mb-1">
+              * Tax applied
+            </p>
+            <p className="text-[10px] text-muted-foreground mb-3">
               Contact LotIQ to adjust your service plan
             </p>
             <Button variant="outline" className="w-full text-destructive border-destructive/30 hover:bg-destructive/5">
