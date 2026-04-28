@@ -98,6 +98,7 @@ export default function Invoices() {
           </Card>
         )}
       </div>
+      <p className="text-[11px] text-muted-foreground mt-3">* Tax applied</p>
     </AppLayout>
   );
 }
