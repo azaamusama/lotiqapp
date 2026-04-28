@@ -29,10 +29,11 @@ export default function Pricing() {
             </div>
 
             <div className="flex items-baseline gap-1 mb-2">
-              <span className="text-4xl md:text-5xl font-bold tracking-tight">$149</span>
+              <span className="text-4xl md:text-5xl font-bold tracking-tight">$149*</span>
               <span className="text-base md:text-lg text-muted-foreground">/month</span>
             </div>
-            <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">Per property · No hardware cost · One-time installation</p>
+            <p className="text-xs md:text-sm text-muted-foreground mb-1">Per property · No hardware cost · One-time installation</p>
+            <p className="text-[11px] md:text-xs text-muted-foreground mb-4 md:mb-6">* Tax applied</p>
 
             <Button className="w-full mb-6 md:mb-8" size="lg">Get Started</Button>
 
