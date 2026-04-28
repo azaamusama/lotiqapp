@@ -337,7 +337,7 @@ export default function Signup() {
                 </button>
               ))}
             </div>
-            <p className="text-[11px] text-muted-foreground mt-3">* Tax applied</p>
+            <p className="text-[11px] text-muted-foreground mt-3">* Plus Sales tax</p>
           </div>
         )}
 

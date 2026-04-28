@@ -43,7 +43,7 @@ export default function Billing() {
               <p className="text-xs text-muted-foreground mb-0.5">Monthly Subscription</p>
               <p className="text-2xl font-bold text-foreground">$299*</p>
               <p className="text-xs text-muted-foreground mt-0.5">Managed service</p>
-              <p className="text-[10px] text-muted-foreground mt-2">* Tax applied</p>
+              <p className="text-[10px] text-muted-foreground mt-2">* Plus Sales tax</p>
             </div>
           </CardContent>
         </Card>
@@ -109,7 +109,7 @@ export default function Billing() {
               ))}
             </div>
             <p className="text-[10px] text-muted-foreground mt-4 mb-1">
-              * Tax applied
+              * Plus Sales tax
             </p>
             <p className="text-[10px] text-muted-foreground mb-3">
               Contact LotIQ to adjust your service plan

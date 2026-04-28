@@ -33,7 +33,7 @@ export default function Pricing() {
               <span className="text-base md:text-lg text-muted-foreground">/month</span>
             </div>
             <p className="text-xs md:text-sm text-muted-foreground mb-1">Per property · No hardware cost · One-time installation</p>
-            <p className="text-[11px] md:text-xs text-muted-foreground mb-4 md:mb-6">* Tax applied</p>
+            <p className="text-[11px] md:text-xs text-muted-foreground mb-4 md:mb-6">* Plus Sales tax</p>
 
             <Button className="w-full mb-6 md:mb-8" size="lg">Get Started</Button>
 
