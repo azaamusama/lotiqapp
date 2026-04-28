@@ -78,7 +78,7 @@ export default function Invoices() {
                 <p className="text-[10px] text-muted-foreground">{inv.property}</p>
               </div>
               <div className="text-right shrink-0">
-                <p className="text-sm font-semibold text-foreground">${inv.amount}</p>
+                <p className="text-sm font-semibold text-foreground">${inv.amount}*</p>
                 <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
                   inv.status === "paid"
                     ? "bg-[hsl(var(--lotiq-green))]/10 text-[hsl(var(--lotiq-green))]"
@@ -98,6 +98,7 @@ export default function Invoices() {
           </Card>
         )}
       </div>
+      <p className="text-[11px] text-muted-foreground mt-3">* Tax applied</p>
     </AppLayout>
   );
 }

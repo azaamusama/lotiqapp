@@ -41,8 +41,9 @@ export default function Billing() {
             </p>
             <div className="bg-muted/50 rounded-xl p-4">
               <p className="text-xs text-muted-foreground mb-0.5">Monthly Subscription</p>
-              <p className="text-2xl font-bold text-foreground">$299</p>
+              <p className="text-2xl font-bold text-foreground">$299*</p>
               <p className="text-xs text-muted-foreground mt-0.5">Managed service</p>
+              <p className="text-[10px] text-muted-foreground mt-2">* Tax applied</p>
             </div>
           </CardContent>
         </Card>
@@ -95,7 +96,7 @@ export default function Billing() {
             <div className="space-y-3">
               {[
                 ["Plan", "Managed Service Plan"],
-                ["Monthly Charge", "$299/mo"],
+                ["Monthly Charge", "$299/mo*"],
                 ["Billing Cycle", "Monthly"],
                 ["Property", propertyName],
                 ["Start Date", "Sep 1, 2025"],
@@ -107,7 +108,10 @@ export default function Billing() {
                 </div>
               ))}
             </div>
-            <p className="text-[10px] text-muted-foreground mt-4 mb-3">
+            <p className="text-[10px] text-muted-foreground mt-4 mb-1">
+              * Tax applied
+            </p>
+            <p className="text-[10px] text-muted-foreground mb-3">
               Contact LotIQ to adjust your service plan
             </p>
             <Button variant="outline" className="w-full text-destructive border-destructive/30 hover:bg-destructive/5">
