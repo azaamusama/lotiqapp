@@ -539,19 +539,36 @@ export default function PropertySetup() {
                 </div>
 
                 <div className="border-t border-border pt-3">
-                  <p className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase mb-2">Pricing Breakdown</p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">One-time installation fee</span>
-                    <span className="font-medium">$150.00</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm mt-1">
-                    <span className="text-muted-foreground">Taxes</span>
-                    <span className="font-medium">$45.43</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm mt-2 pt-2 border-t border-border font-bold">
-                    <span>Total Price</span>
-                    <span>$604.43</span>
-                  </div>
+                  {(() => {
+                    const cycleLabel = pricingTab === "monthly" ? "Monthly" : pricingTab === "quarterly" ? "Quarterly" : "Yearly";
+                    const subTotals = { monthly: 24, quarterly: 66, yearly: 240 } as const;
+                    const subscription = subTotals[pricingTab];
+                    const tax = +(subscription * 0.0625).toFixed(2);
+                    const total = +(subscription + tax).toFixed(2);
+                    return (
+                      <>
+                        <p className="text-[10px] font-semibold text-muted-foreground tracking-wider uppercase mb-2">Pricing Breakdown</p>
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-muted-foreground">One-time installation</span>
+                          <span className="font-medium">$150.00</span>
+                        </div>
+                        <div className="border-t border-border mt-3 pt-3 space-y-1">
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="text-muted-foreground">{cycleLabel} subscription</span>
+                            <span className="font-medium">${subscription.toFixed(2)}</span>
+                          </div>
+                          <div className="flex items-center justify-between text-sm">
+                            <span className="text-muted-foreground">Massachusetts Sales tax</span>
+                            <span className="font-medium">${tax.toFixed(2)}</span>
+                          </div>
+                          <div className="flex items-center justify-between text-sm mt-2 pt-2 border-t border-border font-bold">
+                            <span>Total {cycleLabel} Price</span>
+                            <span>${total.toFixed(2)}</span>
+                          </div>
+                        </div>
+                      </>
+                    );
+                  })()}
                 </div>
               </div>
             </div>
