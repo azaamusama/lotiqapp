@@ -438,10 +438,31 @@ export default function Signup() {
               <p className="text-xs text-muted-foreground">
                 {paymentMethod === "ach" ? "You will be charged immediately." : "Billing will follow your selected method."}
               </p>
-              <div className="flex items-center gap-2">
-                <Switch checked={agreeTerms} onCheckedChange={setAgreeTerms} />
-                <p className="text-xs text-muted-foreground">
-                  I agree to the <span className="text-primary underline cursor-pointer">Terms and Conditions</span>.
+              <div className="flex items-start gap-2">
+                <Switch checked={agreeTerms} onCheckedChange={setAgreeTerms} className="mt-0.5 shrink-0" />
+                <p className="text-xs text-muted-foreground leading-5">
+                  I confirm that I am authorized to enter into this agreement on behalf of my organization. I have read and agree to the LotIQ{" "}
+                  <span
+                    className="text-primary underline cursor-pointer"
+                    onClick={() => navigate("/settings/terms")}
+                  >
+                    Master Subscription Terms
+                  </span>{" "}
+                  and{" "}
+                  <span
+                    className="text-primary underline cursor-pointer"
+                    onClick={() => navigate("/settings/privacy")}
+                  >
+                    Privacy Policy
+                  </span>
+                  , including the 12-month minimum commitment and automatic renewal described above, and LotIQ's{" "}
+                  <span
+                    className="text-primary underline cursor-pointer"
+                    onClick={() => navigate("/settings/terms")}
+                  >
+                    Master Terms & Condition
+                  </span>
+                  .
                 </p>
               </div>
             </div>
